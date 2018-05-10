@@ -125,5 +125,24 @@ class EmptyController extends Common{
         $result['status'] = 1;
         return $result;
     }
+
+    public function record(){
+        $data = array(
+            'idcard' => '42118119881130231x',
+            'tel'   => '17665495306'
+            );
+        $list = db('users_formal')->where($data)->field('id,university,idcard,tel,addtime')->select();
+        foreach ($list as $k => $v) {
+            $list[$k]['addtime'] = date('Y-m-d h:i:s',$v['addtime']);
+        }
+        $this->assign('num',count($list));
+        $this->assign('list',$list);
+        return $this->fetch();
+    }
+
+    public function record_info($id){
+        return $this->fetch();
+    }
+
 }
 

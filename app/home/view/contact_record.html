@@ -1,0 +1,32 @@
+{include file="common/head"/}
+<style>
+.record{background-color: #f8f8f8;}
+.navbar{ font-size:12px; }
+.record_result{ padding: .5rem 0;
+    font-size: 12px;
+    background: #fff;
+    border: 1px solid #cacaca;
+    text-align: center;
+    color: red;}
+.record_list{    margin-bottom: 30px;}
+.record_list ul{padding: 20px 0;}
+.record_list ul li{height: 25px;
+    line-height: 25px;
+    border-bottom: 1px #717070 dashed;}
+.record_list ul li a{    font-size: 12px;
+    color: #3d3d3d;}
+.record_list ul li a:hover{ color: #ff0000;}
+.record_list ul li a span{ margin-left: 50px; }
+</style>
+<div class="show-info record">
+	<div class="navbar">当前位置：首页 > 学历信息 </div>
+	<div class="record_result">查询到{$num}条信息</div>
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 record_list">
+		<ul>
+		{volist name="list" id="vo"}
+			<li><a href="/home-contact-record_info-id-{$vo.id}.html">{$i}.{$vo.university}<span>{$vo.addtime}</span></a></li>
+		{/volist}
+		</ul>
+	</div>
+</div>
+{include file="common/footer"/}
