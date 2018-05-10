@@ -12,8 +12,9 @@ class Index extends Common{
         if (!session('user_id')) {
             $this->redirect('login/index');
         }
-
         $this->user_id = session('user_id');
+        $r = db('users')->field('id,level')->find($this->user_id);
+        $this->level = $r['level'];
     }
 
     public function index(){
@@ -67,6 +68,7 @@ class Index extends Common{
 
     //学历查询列表
 public function education_list(){
+    if($this->level == 1){ return $this->fetch('visitor'); }
     $this->assign('title','学历查询列表');
     $list = db('users_formal')
     ->field('id,university,university_course,addtime,state')
@@ -95,6 +97,7 @@ public function integral(){
 
     //缴费信息
 public function pay(){
+    if($this->level == 1){ return $this->fetch('visitor'); }
     $this->assign('title','缴费信息');
     $list = db('users_formal')
     ->field('id,university,tuition,f_date,f_date_num,f_money,s_date,s_date_num,s_money,t_date,t_date_num,t_money,addtime')
@@ -167,8 +170,14 @@ public function msg(){
     return $this->fetch();
 }
 
+public function visitor(){
+    $this->assign('title','消息提醒');
+    return $this->fetch();
+}
+
      //服务合同列表
 public function contract_content_list(){
+    if($this->level == 1){ return $this->fetch('visitor'); }
     $this->assign('title','服务合同列表');
     if(db('apply')->where(array('user_id'=>$this->user_id,'state'=>1))->find()){
         header('Location: /user/index/contract');
@@ -302,9 +311,16 @@ public function get_originn($idcard){
     }
 
 public function photos(){
+    if($this->level == 1){ return $this->fetch('visitor'); }
     $table = db('credentials');
+    $count = $table->where('user_id',$this->user_id)->count();
+    if($count==0){
+        $user_info = array(
+            'user_id' => $this->user_id
+            );
+        $table->insert($user_info);
+    }
     $info = $table->where('user_id',$this->user_id)->field('user_id,enregister_state,idcard_state,f_idcard_state,graduate_state,verification_state,work_state')->find();
-    //var_dump($info);
     $res = array(
         '0' =>  '未提交',
         '1' => '审核中',

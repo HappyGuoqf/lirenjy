@@ -33,15 +33,15 @@ return [
 
     // 数据库名
 
-    'database'        => 'lirenjy_gw',
+    'database'        => 'liren',
 
     // 用户名
 
-    'username'        => 'lirenjy_gw',
+    'username'        => 'liren',
 
     // 密码
 
-    'password'        => 'hzFrB8Di4YpyPaYe',
+    'password'        => 'liren',
 
     // 端口
 

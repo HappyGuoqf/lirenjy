@@ -54,6 +54,9 @@ class Members extends Common{
             if($res['enregister_state'] == 2){
                 $data['enregister_pic'] = $res['enregister_pic'];
             }
+            if($res['idcard_state'] == 2){
+                $data['idcard_pic'] = $res['idcard_pic'];
+            }
             if($res['f_idcard_state'] == 2){
                 $data['f_idcard_pic'] = $res['f_idcard_pic'];
             }
@@ -74,8 +77,13 @@ class Members extends Common{
     public function preview(){
         if($data = db('users_formal')->where('id',input('get.id'))->find()){
             $res = db('credentials')->where('user_id',$data['user_id'])->find();
+            $signature = db('signature')->where(array('id'=>$data['id'],'user_id'=>$data['user_id']))->field('id,user_id,addtime,signature_num')->find();
+
             if($res['enregister_state'] == 2){
                 $data['enregister_pic'] = $res['enregister_pic'];
+            }
+            if($res['idcard_state'] == 2){
+                $data['idcard_pic'] = $res['idcard_pic'];
             }
             if($res['f_idcard_state'] == 2){
                 $data['f_idcard_pic'] = $res['f_idcard_pic'];
@@ -89,6 +97,9 @@ class Members extends Common{
             if($res['work_state'] == 2){
                 $data['work_pic'] = $res['work_pic'];
             }
+            $data['number'] = $signature['signature_num'];
+            $data['time'] = date('Y-m-d',$signature['addtime']);
+            
             $this->assign('res',$data);
         }
         return $this->fetch();
@@ -112,6 +123,7 @@ class Members extends Common{
         $res['company_addr'] = $r['company_addr'];
         $res['company_phone'] = $r['company_phone'];
         $res['company_content'] = $r['content'];
+        $res['pic'] = '/public'.$r['pic'];
         if($res){
             $this->assign('list',$res);
         }

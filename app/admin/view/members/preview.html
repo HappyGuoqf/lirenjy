@@ -43,8 +43,8 @@
                 <br />
                     <table style="margin:auto; font-size:12px; height:30px" width="800">
                         <tr border="0">
-                            <td>填表日期：</td>
-                            <td>学员编号：</td>
+                            <td>填表日期：{$res.time}</td>
+                            <td>学员编号：{$res.number}</td>
                         </tr>
                        </table>
                     <table style="margin:auto;font-size:12px;" width="800" border="1">
@@ -134,7 +134,7 @@
                         </td>
                         </tr>
                         <tr>
-                        <td colspan="9" height="40" style="text-align:left">&nbsp;&nbsp;学费缴纳情况： 应收学费： &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               实收学费：</td>
+                        <td colspan="9" height="40" style="text-align:left">&nbsp;&nbsp;学费缴纳情况： 应收学费： {$res.tuition}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               实收学费：{$res.f_money+$res.s_money+$res.t_money}&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               剩余学费：{$res.tuition-$res.f_money-$res.s_money-$res.t_money}</td>
                         </tr>
                         <tr >
                         <td height="40" width="100" style="text-align:center">日期</td>
