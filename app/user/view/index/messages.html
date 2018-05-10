@@ -1,0 +1,19 @@
+{include file="common/loginHead"/}
+<div class="weixin-bg">
+        {volist name="list" id="vo" empty="未查询到信息"}
+        <div class="weui-panel">
+            <div class="weui-panel__bd">
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">{$vo.title}</h4>
+                    <p class="weui-media-box__desc" style="-webkit-line-clamp: 10;">{$vo.contant}</p>
+                    <ul class="weui-media-box__info">
+                        <li class="weui-media-box__info__meta">立人教育</li>
+                        <li class="weui-media-box__info__meta">{:toDate($vo['addtime'],'Y-m-d')}</li>
+                        <li class="weui-media-box__info__meta weui-media-box__info__meta_extra">其它信息</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        {/volist}
+</div>
+{include file="common/footer"/} 

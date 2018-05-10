@@ -1,0 +1,82 @@
+<!-- footer start here -->
+<footer>
+<!--友情链接-->
+<div class="link">
+    <div class="link-main">
+        <span>友情链接</span>
+        <ul>
+                {volist name="linkList" id="vo"}
+                <li><a href="{$vo.url}" rel="external" title="{$vo.name}">{$vo.name}</a></li>
+                {/volist}
+                </ul>
+    </div>
+</div>
+<!--友情链接-->
+<div class="footer">
+    <div class="footer-main">
+        <div class="footer-main-left">
+            <ul>
+                <h3>帮助中心</h3>
+                <li><a href="/home-register-index-catId-34.html">立人注册</a></li>
+                <li><a href="/home-register-index-catId-36.html">资料提交说明</a></li>
+                <li><a href="/home-register-index-catId-35.html">学员政策</a></li>
+            </ul>
+            <ul>
+                <h3>复习备考</h3>
+                <li><a href="/home-register-index-catId-38.html">考试必过技巧</a></li>
+            </ul>
+            <ul>
+                <h3>关于我们</h3>
+            {volist name="category" catId="26" id="vo"}
+                {if condition="$vo['id'] eq 26"}
+                    {volist name="$vo.sub" id="v"}
+                        <li {if condition="input('catId') eq $v['id']"}class="selected"{/if}><a href="{:url('home/'.$vo['catdir'].'/index',['catId'=>$v['id']] )}" title="{$v.catname}">{$v.catname}</a></li>
+                    {/volist}
+                {/if}
+            {/volist}
+            </ul>
+            <ul class="service-info">
+                <h3>服务热线</h3>
+                <li><span>电话：18128859004</span></li>
+                <li><span>邮箱：lirenjiaoyu@100.com</span></li>
+                <li><span>QQ：1099026622</span></li>
+            </ul>
+        </div>
+        <div class="footer-main-right">
+            <img src="__HOME__/images/qcode.png" />
+            <span>微信关注<br />获得更多资讯</span>
+            <p>地址：深圳市坂田街道五和大道南108号凯旋商业大厦五楼 （五号线：五和地铁站B出口直行100米）</p>
+        </div>
+    </div>
+    <p>Copyright ©   2008-2018  深圳市立人教育中心 ALL RIGHT RESERVED</p>
+    <p><a href="http://www.miitbeian.gov.cn/" style="color:#fff">粤ICP备18030932号-1</a></p>
+
+    <!-- 客服代码 -->
+    <div class="customer_service">
+        <div class="customer_service_1">
+            <img src="__HOME__/images/qcode.png">
+            <p>微信关注<br />更多资讯</p>
+        </div>
+        <div class="customer_service_2">
+            <img src="__HOME__/img/tel.svg">
+            <p><a href="#">通话</a></p>
+        </div>
+        <div class="customer_service_3">
+            <img src="__HOME__/img/service.svg">
+            <p><a href="">客服</a></p>
+        </div>
+    </div>
+
+
+
+
+</div>
+</footer>
+
+
+
+
+
+    </body>
+
+</html>

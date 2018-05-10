@@ -1,0 +1,51 @@
+{include file="common/loginHead"/}
+<div class="weixin-bg">
+        {volist name="list" id="vo" empty="未查询到信息"}
+        <div class="weui-panel">
+            <div class="weui-panel__bd">
+                {if condition="$vo.f_money neq null"}
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">{$vo.university}</h4>
+                    <ul class="weui-media-box__info">
+                        <li class="weui-media-box__desc">总费用：{$vo.tuition}&nbsp;&nbsp;实收：{$vo.f_money}&nbsp;&nbsp;剩余：{$vo.tuition-$vo.f_money}</li>
+                    </ul>
+                    <ul class="weui-media-box__info">
+                        <li class="weui-media-box__desc">日期：{$vo.f_date}&nbsp;&nbsp;票据号码：{$vo.f_date_num}</li>
+                    </ul>
+                </div>
+                {else/}
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">{$vo.university}</h4>
+                    <ul class="weui-media-box__info">
+                        <li class="weui-media-box__desc">未查询到缴费信息</li>
+                    </ul>
+                </div>
+                {/if}
+                {if condition="$vo.s_money neq null"}
+                <div class="weui-media-box weui-media-box_text">
+                    <ul class="weui-media-box__info">
+                        <li class="weui-media-box__desc">结余：{$vo.tuition-$vo.f_money}&nbsp;&nbsp;实收：{$vo.s_money}&nbsp;&nbsp;剩余：{$vo.tuition-$vo.f_money-$vo.s_money}</li>
+                    </ul>
+                    <ul class="weui-media-box__info">
+                        <li class="weui-media-box__desc">日期：{$vo.s_date}&nbsp;&nbsp;票据号码：{$vo.s_date_num}</li>
+                    </ul>
+                </div>
+                {/if}
+                {if condition="$vo.t_money neq null"}
+                <div class="weui-media-box weui-media-box_text">
+                    <ul class="weui-media-box__info">
+                        <li class="weui-media-box__desc">结余：{$vo.tuition-$vo.f_money-$vo.s_money}&nbsp;&nbsp;实收：{$vo.t_money}&nbsp;&nbsp;剩余：{$vo.tuition-$vo.f_money-$vo.s_money-$vo.t_money}</li>
+                    </ul>
+                    <ul class="weui-media-box__info">
+                        <li class="weui-media-box__desc">日期：{$vo.t_date}&nbsp;&nbsp;票据号码：{$vo.t_date_num}</li>
+                    </ul>
+                </div>
+                {/if}
+            </div>
+        </div>
+        {/volist}
+
+
+</div>
+
+{include file="common/footer"/}

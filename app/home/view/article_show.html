@@ -1,0 +1,31 @@
+{include file="common/head"/}
+<div class="news-fluid">
+	<div class="news-ad"><img src="__HOME__/images/news-ad.png" /></div>
+</div>
+<div class="show-info">
+	<div class="show-main">
+		<div class="show-main-nav"><span>当前位置：</span><i><a href="/">首页</a></i> > <i><a href="home-zkzx-index-catId-{$info.catid}.html">{$catname}</a></i> > <i>{$info.title}</i> > 正文</div>
+		<div class="show-content">
+			<div class="show-title">
+				<h3 style="{$info.title_color};{$info.title_weight}">{$info.title}</h3>
+				<span>发布时间：{:toDate($info['createtime'],'Y-m-d')} </span>
+				<div class="content">{$info.content}</div>
+			</div>
+		</div>
+		<div class="show-tuijian">
+			<h3>相关推荐</h3>
+			<ul>
+    				{clt:list_join db='article' dbfield='catid' id='vo' joindb='category' joinfield='id' where='posid = 2 and catid=$info[catid]' order="listorder asc,createtime desc" limit='6'}
+                    <li><a href="{:url('home/'.$vo['catdir'].'/info',array('id'=>$vo['id'],'catId'=>$vo['catid']))}" title="{$vo.title}">{$vo.title}</a></li>
+                    {/clt:list_join}
+			</ul>
+		</div>
+	</div>
+	<div class="show-right">
+		<a href="#"><img src="__HOME__/images/show-1.png"  /></a>
+		<a href="#"><img src="__HOME__/images/show-2.png"  /></a>
+		<a href="#"><img src="__HOME__/images/show-3.png"  /></a>
+	</div>
+</div>
+<div style="clear:both;"></div>
+{include file="common/footer"/}

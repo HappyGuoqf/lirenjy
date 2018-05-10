@@ -1,0 +1,214 @@
+{include file="common/head"/}
+<div class="admin-main layui-anim layui-anim-upbit ng-scope" ng-app="hd" ng-controller="ctrl">
+
+    <fieldset class="layui-elem-field layui-field-title">
+
+        <legend>证件列表</legend>
+
+    </fieldset>
+    
+    <div class="layui-form layui-border-box layui-table-view" lay-filter="LAY-table-1" style=" ">
+   <div class="layui-table-box">
+    <div class="layui-table-header">
+     <table cellspacing="0" cellpadding="0" border="0" class="layui-table">
+      <thead>
+       <tr>
+        <th data-field="id">
+         <div class="layui-table-cell laytable-cell-1-id">
+          <span>证件名称</span>
+         </div></th>
+        <th data-field="mobile">
+         <div class="layui-table-cell laytable-cell-1-mobile">
+          <span>路径</span>
+         </div></th>
+        <th data-field="5">
+         <div class="layui-table-cell laytable-cell-1-5" align="center">
+          <span></span>
+         </div></th>
+       </tr>
+      </thead>
+     </table>
+    </div>
+    <div class="layui-table-body layui-table-main">
+     <table cellspacing="0" cellpadding="0" border="0" class="layui-table">
+      <tbody>
+
+       <tr data-index="0" class="">
+        <td>
+         <div class="layui-table-cell laytable-cell-1-id">
+          登记照
+         </div></td>
+        <td>
+         <div class="layui-table-cell laytable-cell-1-mobile">
+          {$info.enregister_pic}<span style="color:#ef0000;">{if condition="$info.enregister_state eq 1"}(审核中){elseif condition="$info.enregister_state eq 2"}(审核通过){elseif condition="$info.enregister_state eq 3"}(审核不通过){else /}(未提交){/if}</span>
+         </div></td>
+        <td data-field="5" align="center" data-off="true">
+         <div class="layui-table-cell laytable-cell-1-5"> 
+          <a id="adopt1" type="enregister_" class="layui-btn layui-btn-normal layui-btn-xs">通过</a> 
+          <a id="fail1" type="enregister_" class="layui-btn layui-btn-normal layui-btn-xs">未通过</a>  
+          <a href="{:url('Members/cat')}?id={$info.user_id}&type=enregister_pic" class="layui-btn layui-btn-danger layui-btn-xs">查看</a> 
+         </div></td>
+       </tr>
+      <tr data-index="0" class="">
+        <td>
+         <div class="layui-table-cell laytable-cell-1-id">
+          身份证正面
+         </div></td>
+        <td>
+         <div class="layui-table-cell laytable-cell-1-mobile">
+          {$info.idcard_pic}<span style="color:#ef0000;">{if condition="$info.idcard_state eq 1"}(审核中){elseif condition="$info.idcard_state eq 2"}(审核通过){elseif condition="$info.idcard_state eq 3"}(审核不通过){else /}(未提交){/if}</span>
+         </div></td>
+        <td data-field="5" align="center" data-off="true">
+         <div class="layui-table-cell laytable-cell-1-5"> 
+          <a id="adopt2" type="idcard_" class="layui-btn layui-btn-normal layui-btn-xs">通过</a> 
+          <a id="fail2" type="idcard_" class="layui-btn layui-btn-normal layui-btn-xs">未通过</a>  
+          <a href="{:url('Members/cat')}?id={$info.user_id}&type=idcard_pic" class="layui-btn layui-btn-danger layui-btn-xs">查看</a> 
+         </div></td>
+       </tr>
+      <tr data-index="0" class="">
+        <td>
+         <div class="layui-table-cell laytable-cell-1-id">
+          身份证反面
+         </div></td>
+        <td>
+         <div class="layui-table-cell laytable-cell-1-mobile">
+          {$info.f_idcard_pic}<span style="color:#ef0000;">{if condition="$info.f_idcard_state eq 1"}(审核中){elseif condition="$info.f_idcard_state eq 2"}(审核通过){elseif condition="$info.f_idcard_state eq 3"}(审核不通过){else /}(未提交){/if}</span>
+         </div></td>
+        <td data-field="5" align="center" data-off="true">
+         <div class="layui-table-cell laytable-cell-1-5"> 
+          <a id="adopt3" type="f_idcard_" class="layui-btn layui-btn-normal layui-btn-xs">通过</a> 
+          <a id="fail3" type="f_idcard_" class="layui-btn layui-btn-normal layui-btn-xs">未通过</a> 
+          <a href="{:url('Members/cat')}?id={$info.user_id}&type=f_idcard_pic" class="layui-btn layui-btn-danger layui-btn-xs">查看</a> 
+         </div></td>
+       </tr>
+       <tr data-index="0" class="">
+        <td>
+         <div class="layui-table-cell laytable-cell-1-id">
+          毕业证照片
+         </div></td>
+        <td>
+         <div class="layui-table-cell laytable-cell-1-mobile">
+          {$info.graduate_pic}<span style="color:#ef0000;">{if condition="$info.graduate_state eq 1"}(审核中){elseif condition="$info.graduate_state eq 2"}(审核通过){elseif condition="$info.graduate_state eq 3"}(审核不通过){else /}(未提交){/if}</span>
+         </div></td>
+        <td data-field="5" align="center" data-off="true">
+         <div class="layui-table-cell laytable-cell-1-5"> 
+          <a id="adopt4" type="graduate_" class="layui-btn layui-btn-normal layui-btn-xs">通过</a> 
+          <a id="fail4" type="graduate_" class="layui-btn layui-btn-normal layui-btn-xs">未通过</a>  
+          <a href="{:url('Members/cat')}?id={$info.user_id}&type=graduate_pic" class="layui-btn layui-btn-danger layui-btn-xs">查看</a> 
+         </div></td>
+       </tr>
+      <tr data-index="0" class="">
+        <td>
+         <div class="layui-table-cell laytable-cell-1-id">
+          验证报告
+         </div></td>
+        <td>
+         <div class="layui-table-cell laytable-cell-1-mobile">
+          {$info.verification_pic}<span style="color:#ef0000;">{if condition="$info.verification_state eq 1"}(审核中){elseif condition="$info.verification_state eq 2"}(审核通过){elseif condition="$info.verification_state eq 3"}(审核不通过){else /}(未提交){/if}</span>
+         </div></td>
+        <td data-field="5" align="center" data-off="true">
+         <div class="layui-table-cell laytable-cell-1-5"> 
+          <a id="adopt5" type="verification_" class="layui-btn layui-btn-normal layui-btn-xs">通过</a> 
+          <a id="fail5" type="verification_" class="layui-btn layui-btn-normal layui-btn-xs">未通过</a>  
+          <a href="{:url('Members/cat')}?id={$info.user_id}&type=verification_pic" class="layui-btn layui-btn-danger layui-btn-xs">查看</a> 
+         </div></td>
+       </tr>
+        <tr data-index="0" class="">
+        <td>
+         <div class="layui-table-cell laytable-cell-1-id">
+          居住证明
+         </div></td>
+        <td>
+         <div class="layui-table-cell laytable-cell-1-mobile">
+          {$info.work_pic}<span style="color:#ef0000;">{if condition="$info.work_state eq 1"}(审核中){elseif condition="$info.work_state eq 2"}(审核通过){elseif condition="$info.work_state eq 3"}(审核不通过){else /}(未提交){/if}</span>
+         </div></td>
+        <td data-field="5" align="center" data-off="true">
+         <div class="layui-table-cell laytable-cell-1-5"> 
+          <a id="adopt6" type="work_" class="layui-btn layui-btn-normal layui-btn-xs">通过</a> 
+          <a id="fail6" type="work_" class="layui-btn layui-btn-normal layui-btn-xs">未通过</a> 
+          <a href="{:url('Members/cat')}?id={$info.user_id}&type=work_pic" class="layui-btn layui-btn-danger layui-btn-xs">查看</a> 
+         </div></td>
+       </tr>
+
+      </tbody>
+     </table>
+    </div>
+
+   </div>
+  
+   <style>.laytable-cell-1-0{ width: 48px; }.laytable-cell-1-id{ width: 200px; }.laytable-cell-1-mobile{ width: 500px; }.laytable-cell-1-reg_time{ width: 200px; }.laytable-cell-1-5{ width: 280px; }</style>
+  </div>
+</div>
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+<script type="text/javascript">
+  $('#adopt1').click(function(){
+    var type = $("#adopt1").attr("type");
+    adopt(type);
+  });
+  $('#fail1').click(function(){
+    var type = $("#fail1").attr("type");
+    fail(type);
+  });
+  $('#adopt2').click(function(){
+    var type = $("#adopt2").attr("type");
+    adopt(type);
+  });
+  $('#fail2').click(function(){
+    var type = $("#fail2").attr("type");
+    fail(type);
+  });
+  $('#adopt3').click(function(){
+    var type = $("#adopt3").attr("type");
+    adopt(type);
+  });
+  $('#fail3').click(function(){
+    var type = $("#fail3").attr("type");
+    fail(type);
+  });
+  $('#adopt4').click(function(){
+    var type = $("#adopt4").attr("type");
+    adopt(type);
+  });
+  $('#fail4').click(function(){
+    var type = $("#fail4").attr("type");
+    fail(type);
+  });
+  $('#adopt5').click(function(){
+    var type = $("#adopt5").attr("type");
+    adopt(type);
+  });
+  $('#fail5').click(function(){
+    var type = $("#fail5").attr("type");
+    fail(type);
+  });
+  $('#adopt6').click(function(){
+    var type = $("#adopt6").attr("type");
+    adopt(type);
+  });
+  $('#fail6').click(function(){
+    var type = $("#fail6").attr("type");
+    fail(type);
+  });
+  function adopt(type){
+    $.post("{:url('members/state')}",{'user_id':{$info.user_id},'state':2,'type':type},function(res){
+      if(res.code > 0){
+        layer.msg(res.msg);
+      }else{
+        layer.msg('操作失败！');
+      }
+    })
+  }
+  function fail(type){
+    $.post("{:url('members/state')}",{'user_id':{$info.user_id},'state':3,'type':type},function(res){
+      if(res.code > 0){
+        layer.msg(res.msg);
+      }else{
+        layer.msg('操作失败！');
+      }
+    })
+  }
+</script>
+
+</body>
+</html>

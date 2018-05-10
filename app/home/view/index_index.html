@@ -1,0 +1,261 @@
+{include file="common/head"/}
+                <div class="cd-hero">
+                    <ul class="cd-hero-slider">
+                        <li class="selected" id="banner-1">
+                            <div class="cd-full-width">
+                                    <div class="cd-btn slide-1 banner-1-1">
+                                        <p>零基础，没时间也可以上大学! </p>
+                                        <span>我们给你<i>会偷懒</i>的学历！</span>
+                                    </div>
+                            </div>
+
+                        </li>
+                        <li id="banner-2">
+                            <div class="cd-full-width">
+                                <div class="cd-btn">
+                                    <img src="__HOME__/images/banner-2-2.png"/>
+                                </div>
+                            </div>
+
+                        </li>
+                        <li id="banner-3">
+                            <div class="cd-full-width">
+                                <div style=" height: 500px;">
+                                    <img src="__HOME__/images/banner-3-2.png"/>
+                                </div>
+                            </div>
+                        </li>
+                        <li id="banner-4">
+                            <div class="cd-full-width">
+                                <div class="cd-btn">
+                                <img src="__HOME__/images/banner-4-2.png"/>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="cd-slider-nav">
+                        <div class="nav">
+                            <span class="cd-marker item-1"></span>
+                            <ul>
+                                <li class="selected">
+                                    <a href="javascript:"></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:"></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:"></a>
+                                </li>
+                                <li>
+                                    <a href="javascript:"></a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>        
+                    <!--学历查询登录框-->
+                    <div class="login-index">
+                        <h3>———<span>学历查询</span>———</h3>
+                        <form>
+                            <div class="card-num"><input class="card-num-input" type="text" placeholder="输入身份证号" /></div>
+                            <div class="telphone"><input class="telphone-input" type="text" placeholder="输入手机号" /></div>
+                            <div class="yanzhengma"><input class="yanzhengma-input" type="text" placeholder="输入验证码" /></div>
+                            <button class="button-index">查询</button>
+                            <a href="" class="help-index">请求帮助>></a>
+                        </form>
+                    </div>
+                    <!--学历查询登录框-->
+                </div>
+
+<script type="text/javascript">
+var t;
+var index = 0;
+/////自动播放
+t = setInterval(play, 5000);
+$(function(){  
+                $(".cd-hero").on({  
+                    mouseover : function(){  
+                        clearInterval(t);
+                    } ,  
+                    mouseout : function(){  
+                        t = setInterval(play, 3000)
+                    }   
+                }) ;  
+            }) ;  
+function play() {
+    index++;
+    if (index > 3) {
+        index = 0
+    }
+    $(".cd-hero-slider").find("li").eq(index-1).removeClass("selected");
+    $(".cd-hero-slider").find("li").eq(index-1).addClass("move-left");
+    $(".cd-hero-slider").find("li").eq(index).addClass("selected from-right");
+    if(index == 0){
+        $(".cd-hero-slider").find("li").removeClass();
+        $(".cd-hero-slider").find("li").eq(index).addClass("selected");
+        
+    }
+    $(".nav").find("li").eq(index).addClass("selected");
+    $(".nav").find("li").removeClass("selected");
+    $(".nav").find("li").eq(2).addClass("selected");
+    if(index == 0){
+        $(".nav").find("span").removeClass("item-4");
+    }else{
+        $(".nav").find("span").removeClass("item-"+(index));
+    }
+    $(".nav").find("span").addClass("item-"+(index+1));
+};
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!--最新动态-->
+<script type="text/javascript" src="__HOME__/js/scroll.js"></script>
+<style>
+.myscroll { height: 145px; margin: 0 auto; line-height: 21px; overflow: hidden; font-size:14px;}
+.myscroll li { height: 21px; margin-left: 25px; color: #fff;}
+</style>
+<script type="text/javascript">
+$(function(){
+    $('.myscroll').myScroll({
+        speed: 80, //数值越大，速度越慢
+        rowHeight: 30 //li的高度
+    });
+});
+</script>
+            <div class="index-news">
+                <div class="index-news-main">
+                    <h3><span>最新动态</span></h3>
+                    <div class="index-news-left">
+                        <div class="index-news-left-blue">
+                            
+                            <h4>通&nbsp;&nbsp;&nbsp;&nbsp;<img src="__HOME__/img/notice.svg" /> &nbsp;&nbsp;&nbsp;&nbsp;知</h4>
+                            <ul>
+                                {clt:list db='article' id='vo' limit="5" where="catId=14" order="id desc"}
+                                <li><a href="{:url('home/zkzx/info',array('id'=>$vo['id'],'catId'=>$vo['catid']))}">{$vo.title}</a></li>
+                                {/clt:list}
+                            </ul>
+                        </div>
+                        <div class="index-news-left-blue-line"></div>
+                    </div>
+                    <div class="index-news-right">
+                        <div class="index-news-left-yellow">
+                            
+                            <h4>毕&nbsp;&nbsp;业&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="__HOME__/img/student.svg" />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名&nbsp;&nbsp;单</h4>
+                            <div class="myscroll">
+                                <ul>
+                                    {clt:list db='student' id='vo' limit="15" catId="15" order="id desc"}
+                                    <li>{$vo.title}{$vo.content}</li>
+                                    {/clt:list}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="index-news-left-yellow-line"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--最新动态-->
+<!--主推院校-->
+    <div class="index-Colleges-bg">
+        <div class="index-Colleges">
+        <h3><span>主推院校</span></h3>
+        <div class="index-Colleges-main">
+            <ul>
+                {clt:list db='colleges' id='vo' limit="6" where="posid = 1 and catId = 22" order="id desc"}
+                <li>
+                    <a href="{:url('home/zsyx/info',array('id'=>$vo['id'],'catId'=>$vo['catid']))}">
+                        <img src="/public/{$vo.college_img}"  />
+                        <span>{$vo.title}</span>
+                        <p>{$vo.description}</p>
+                    </a>
+                </li>
+                {/clt:list}
+
+            </ul>
+        </div>
+        </div>
+    </div>
+<!--主推院校-->
+            
+<!--主推院校-->
+    <div class="index-Colleges-bg">
+        <div class="index-Colleges">
+        <h3><span>教育资讯</span></h3>
+        <div class="index-info-main">
+                <div class="index-info">
+                    <h2>各院校报名时间</h2>
+                    <div class="index-info-bg"></div>
+                    <div class="index-info-more"><a href="/home-exam-info-id-103-catId-39.html">点击查看</a></div>
+                </div>
+        </div>
+                
+                
+                
+                
+            <div class="index-info-b">
+                <div class="index-info-bl">
+                    <h2>2018最新考试动态</h2>
+                    <ul>
+                        {clt:list db='article' where="posid = 1 and catId=14"  id='vo' limit="5" order="id desc"}
+                            <li><a href="{:url('home/zkzx/info',array('id'=>$vo['id'],'catId'=>$vo['catid']))}">{$vo.title}</a></li>
+                        {/clt:list}
+                    </ul>
+                    <div class="index-info-bl-more"><a href="/home-zkzx-index-catId-14">点击查看</a></div>
+                </div>
+                <div class="index-info-br">
+                    <h2>学历政策</h2>
+                    <ul>
+                        {clt:list db='article' where="posid = 1 and catId=16" id='vo' limit="5" order="id desc"}
+                            <li><a href="{:url('home/zkzx/info',array('id'=>$vo['id'],'catId'=>$vo['catid']))}">{$vo.title}</a></li>
+                        {/clt:list}
+                    </ul>
+                    <div class="index-info-br-more"><a href="/home-zkzx-index-catId-16">点击查看</a></div>
+                </div>
+                <div class="index-info-bbl">
+                    <h2>教育新闻</h2>
+                    <ul>
+                        {clt:list db='article' id='vo' where="posid = 1 and catId=17" limit="5" order="id desc"}
+                            <li><a href="{:url('home/zkzx/info',array('id'=>$vo['id'],'catId'=>$vo['catid']))}">{$vo.title}</a></li>
+                        {/clt:list}
+                    </ul>
+                    <div class="index-info-bbl-more"><a href="/home-zkzx-index-catId-17">点击查看</a></div>
+                </div>
+                <div class="index-info-bbr">
+                    <h2>增值服务</h2>
+                    <ul>
+                        {clt:list db='article' id='vo' where="posid = 1 and catId=18" limit="5" order="id desc"}
+                            <li><a href="{:url('home/zkzx/info',array('id'=>$vo['id'],'catId'=>$vo['catid']))}">{$vo.title}</a></li>
+                        {/clt:list}
+                    </ul>
+                    <div class="index-info-bbr-more"><a href="/home-zkzx-index-catId-18">点击查看</a></div>
+                </div>
+                <div class="index-info-yellow"></div>
+                <div class="index-info-green"></div>
+            </div>
+        </div>
+    </div>
+<!--主推院校--> 
+{include file="common/footer"/}

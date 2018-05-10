@@ -1,0 +1,24 @@
+{include file="common/head"/}
+<div class="news-fluid">
+	<div class="news-ad"><img src="__HOME__/images/news-ad.png" /></div>
+</div>
+<div class="show-info">
+	<div class="about-nav">
+		<ul>
+            {volist name="category" catId="26" id="vo"}
+                {if condition="$vo['id'] eq 26"}
+                    {volist name="$vo.sub" id="v"}
+                        <li {if condition="input('catId') eq $v['id']"}class="selected"{/if}><a href="{:url('home/'.$vo['catdir'].'/index',['catId'=>$v['id']] )}" title="{$v.catname}">{$v.catname}</a></li>
+                    {/volist}
+                {/if}
+            {/volist}
+		</ul>
+	</div>
+	<div class="about-content">
+		<h3>{$info.title}</h3>
+		<div class="about-content-main">{$info.content}</div>
+	</div>
+</div>
+
+<div style="clear: both;"></div>
+{include file="common/footer"/}

@@ -1,0 +1,21 @@
+{include file="common/loginHead"/}
+<style type="text/css">
+    .weui-panel__bd a{ color: #000; }
+</style>
+<div class="weixin-bg">
+        {volist name="list" id="vo" empty="未查询到信息"}
+        <div class="weui-panel">
+            <div class="weui-panel__bd">
+            <a href="{:url('user/index/education',array('id'=>$vo['id']))}">
+                <div class="weui-media-box weui-media-box_text">
+                    <h4 class="weui-media-box__title">{$vo.university}</h4>
+                    <ul class="weui-media-box__info">
+                        <li class="weui-media-box__desc">日期：{:toDate($vo['addtime'],'Y-m-d')}&nbsp;&nbsp;{$vo.university_course}&nbsp;&nbsp;{if condition="$vo.state eq 2"}未毕业{else/}已毕业{/if}</li>
+                    </ul>
+                </div>
+                </a>
+            </div>
+        </div>
+        {/volist}
+</div>
+{include file="common/footer"/}

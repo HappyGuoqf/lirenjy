@@ -1,0 +1,4 @@
+<?php
+//000000003600
+ exit();?>
+a:5:{i:0;a:8:{s:7:"link_id";i:10;s:4:"name";s:12:"招生院校";s:3:"url";s:1:"/";s:7:"type_id";i:0;s:2:"qq";s:0:"";s:4:"sort";i:1;s:7:"addtime";i:1495183645;s:4:"open";i:1;}i:1;a:8:{s:7:"link_id";i:8;s:4:"name";s:12:"在线学习";s:3:"url";s:1:"/";s:7:"type_id";i:0;s:2:"qq";s:9:"270979964";s:4:"sort";i:2;s:7:"addtime";i:1484791374;s:4:"open";i:1;}i:2;a:8:{s:7:"link_id";i:18;s:4:"name";s:9:"学信网";s:3:"url";s:23:"http://www.chsi.com.cn/";s:7:"type_id";N;s:2:"qq";s:0:"";s:4:"sort";i:50;s:7:"addtime";i:1522068203;s:4:"open";i:1;}i:3;a:8:{s:7:"link_id";i:19;s:4:"name";s:24:"广东省教育考试院";s:3:"url";s:23:"http://www.eeagd.edu.cn";s:7:"type_id";N;s:2:"qq";s:0:"";s:4:"sort";i:50;s:7:"addtime";i:1522068239;s:4:"open";i:1;}i:4;a:8:{s:7:"link_id";i:20;s:4:"name";s:15:"深圳招考网";s:3:"url";s:21:"http://www.51a.gov.cn";s:7:"type_id";N;s:2:"qq";s:0:"";s:4:"sort";i:50;s:7:"addtime";i:1522068255;s:4:"open";i:1;}}

@@ -1,0 +1,51 @@
+{include file="common/head"/}
+
+<div class="admin-main layui-anim layui-anim-upbit">
+
+    <fieldset class="layui-elem-field layui-field-title">
+
+        <legend>{:lang('out')}{:lang('set')}</legend>
+
+    </fieldset>
+
+    <div class="demoTable">
+
+    <blockquote class="layui-elem-quote">
+
+        <form action="{:url('out')}" method="post">
+
+
+<span>会员组：</span>
+<div class="layui-inline"><select name="level" style="height: 38px;    border: 1px solid #e5e5e5;">
+        <option value="">全部</option>
+        {volist name="level" id="vo"}
+        <option value="{$vo.level_id}">{$vo.level_name}</option>
+        {/volist}
+      </select></div>
+
+
+        <span>开始编号：</span>
+
+        <div class="layui-inline"><input class="layui-input" name="start" id="key" placeholder="请输入开始编号"></div>
+
+        <span>结束编号：</span>
+
+        <div class="layui-inline"><input class="layui-input" name="end" id="key" placeholder="请输入结束编号"></div>
+
+        <button class="layui-btn" id="out">确定</button> <span style="color:red;">*不填写则导出所有</span>
+
+        </form>
+
+    </blockquote>
+
+    </div>
+
+    <table class="layui-table" id="list" lay-filter="list"></table>
+
+</div>
+
+{include file="common/foot"/}
+
+</body>
+
+</html>

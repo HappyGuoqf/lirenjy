@@ -1,0 +1,71 @@
+{include file="common/head"/}
+
+<div class="news-fluid">
+
+	<div class="news-ad"><img src="__HOME__/images/news-ad.png" /></div>
+
+</div>
+
+
+
+<!-- <div class="news-main-head">
+
+	<ul>
+
+		<li><h3>院校归属地</h3><span><a class="selected">不限</a><a>华东</a><a>华南</a><a>华中</a><a>华西</a><a>华北</a></span></li>
+
+		<li><h3>院校类型</h3><span><a>不限</a><a>文科</a><a>理科</a><a>艺术</a></span></li>
+
+		<li><h3>学历形式</h3><span><a>不限</a><a>自学考试</a><a>成人高考</a><a>网络教育</a><a>电大国开</a></span></li>
+
+		<li><h3>学历层次</h3><span><a>大专</a><a>本科</a></span></li>
+
+	</ul>
+
+</div> -->
+
+
+
+
+
+<div class="news-main" style="margin-top: 50px;">
+
+	<ul>
+
+		{volist name="list" id="vo"}
+
+		<li>
+			<a href="{:url('home/'.$vo['catdir'].'/info',array('id'=>$vo['id'],'catId'=>$vo['catid']))}">
+			<img src="{$vo.title_thumb}" />
+
+			<div class="news-info">
+
+				<h3>{$vo.title}<span><i>{$vo.areas}</i><i>{$vo.gear}</i><i>{$vo.learn}</i></span></h3>
+
+				<h4>所在地:<span>{$vo.addr}</span></h4>
+
+			</div>
+			</a>
+			<div class="news-main-link">
+
+				<a href="{:url('home/'.$vo['catdir'].'/info',array('id'=>$vo['id'],'catId'=>$vo['catid']))}">选择专业</a>
+
+				<a href="" class="news-zixun">顾问咨询</a>
+
+			</div>
+
+		</li>
+
+		{/volist}
+
+	</ul>
+
+	<div class="page">
+
+	{$page}
+
+	</div>
+
+</div>
+
+{include file="common/footer"/}

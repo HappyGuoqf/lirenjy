@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8" />
+        <title>{if condition="$info['title']"}{$info.title}{elseif condition="$title" /}{$title}{else}{$sys.title}{/if}</title>
+        <meta name="keywords" content="{if condition="$info['keywords']"}{$info.keywords}{elseif condition="$keywords" /}{$keywords}{else}{$sys.key}{/if}" />
+        <meta name="description" content="{if condition="$info['description']"}{$info.description}{elseif condition="$description" /}{$description}{else}{$sys.des}{/if}" />
+        <!--public start-->
+        <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0">
+        <link rel="stylesheet" href="__HOME__/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="__HOME__/css/style.css" />
+        <link rel="stylesheet" href="__HOME__/css/media.css" />
+        <script type="text/javascript" src="__HOME__/js/bootstrap.min.js"></script>
+        <script src="__HOME__/js/jq.js"></script>
+        <script src="__HOME__/js/main.js"></script>
+        <!--public end-->
+    </head>
+
+    <body>
+        <header>
+            <div class="header">
+                <div class="public-1">
+                    <p class="header-paty-1">立德树人是教育根本！<span>联系电话：18128859004</span></p>
+                </div>
+                <div class="public-2">
+                    <nav>
+                        <!-- logo -->
+                        <div class="nav-logo">
+                            <a href="/"><img src="__HOME__/img/logo.png" alt=""></a>
+                        </div>
+
+                        <!-- 控制menu -->
+                        <div class="nav-menu">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+
+                        <!-- 菜单 -->
+                        <ul class="nav-list">
+                            <h3>立人助学</h3>
+                                <li><a {if condition="$controller eq 'index'"}class="active"{/if} href="{:url('home/index/index')}" title="立人助学">首页</a></li>
+                                {volist name="category" id="vo"}
+                                <li>
+                                    <a {if condition="$controller eq $vo['catdir']"}class="selected"{/if} href="{:url('home/'.$vo['catdir'].'/index',['catId'=>$vo['id']] )}" title="{$vo.catname}">{$vo.catname}</a>
+                                    {if condition="$vo['child'] eq 1"}
+                                    <ul class="menu">
+                                        {volist name="$vo.sub" id="v"}
+                                            <li><a href="{:url('home/'.$vo['catdir'].'/index',['catId'=>$v['id']] )}" title="{$v.catname}">{$v.catname}</a></li>
+                                        {/volist}
+                                    </ul>
+                                    {/if}
+                                </li>
+                                {/volist}
+                        </ul>
+                        <div class="nav_tel"><img src="__HOME__/img/tel.png" /></div>
+                    </nav>
+
+                    <script>
+                        $(document).click(function() {
+                            $('.nav-list').removeClass('open')
+                        })
+                        $('.nav-menu,.nav-list').click(function(e) {
+                            e.stopPropagation()
+                        })
+                        $('nav').find('.nav-menu').click(function(e) {
+                            $('.nav-list').toggleClass('open')
+                        })
+                    </script>
+                </div>
+            </div>
+        </header>
+<!-- header end here -->

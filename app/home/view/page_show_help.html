@@ -1,0 +1,20 @@
+{include file="common/head"/}
+<div class="news-fluid">
+	<div class="news-ad"><img src="__HOME__/images/news-ad.png" /></div>
+</div>
+<div class="show-info">
+	<div class="about-nav">
+		<ul>
+			<li  {if condition="$info.id eq '34'"}class="selected"{/if}><a href="/home-our-index-catId-34.html" title="立人注册">立人注册{$info.catid}</a></li>
+			<li  {if condition="$info.id eq '36'"}class="selected"{/if}><a href="/home-our-index-catId-36.html" title="资料提交说明">资料提交说明</a></li>
+			<li  {if condition="$info.id eq '35'"}class="selected"{/if}><a href="/home-our-index-catId-35.html" title="学员政策">学员政策</a></li>
+		</ul>
+	</div>
+	<div class="about-content">
+		<h3>{$info.title}</h3>
+		<div class="about-content-main">{$info.content}</div>
+	</div>
+</div>
+
+<div style="clear: both;"></div>
+{include file="common/footer"/}

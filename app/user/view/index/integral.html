@@ -1,0 +1,89 @@
+{include file="common/loginHead"/}
+<style>
+.weixin-info{     border-bottom: 1px solid #ddd; }
+</style>
+     <div class="weui-tab">
+      <div class="weui-navbar">
+        <div class="weui-navbar__item weui-bar__item--on" href="#tab1">
+          我的积分
+        </div>
+        <div class="weui-navbar__item" href="#tab2">
+          我的推荐
+        </div>
+      </div>
+      <div class="weui-tab__bd">
+        <div id="tab1" class="weui-tab__bd-item weui-tab__bd-item--active">
+                <div class="weui-cell weixin-info">
+                    <div class="weui-cell__bd">
+                        <p>总积分</p>
+                    </div>
+                    <div class="weui-cell__ft">3000pv</div>
+                </div>
+                <div class="weui-cell weixin-info">
+                    <div class="weui-cell__bd">
+                        <p>分润</p>
+                    </div>
+                    <div class="weui-cell__ft">500元</div>
+                </div>
+
+        </div>
+        <div id="tab2" class="weui-tab__bd-item">
+          
+                <div class="weui-cell weixin-info">
+                    <div class="weui-cell__bd">
+                        <p>李四</p>
+                    </div>
+                    <div class="weui-cell__ft">2018-04-06</div>
+                </div>
+                <div class="weui-cell weixin-info">
+                    <div class="weui-cell__bd">
+                        <p>王五</p>
+                    </div>
+                    <div class="weui-cell__ft">2018-04-10</div>
+                </div>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="fly-home" style="background-image: url();">
+    {if condition="$userInfo['avatar']"}
+    <img src="{:imgUrl($userInfo['avatar'])}" alt="{$userInfo.username}">
+    {else/}
+    <img src="__STATIC__/user/images/avatar/default.png" alt="{$userInfo.username}">
+    {/if}
+    <h1>
+        {$userInfo.username}
+        {if condition="$userInfo['sex'] eq 1"}
+        <i class="iconfont icon-nan"></i>
+        {else/}
+        <i class="iconfont icon-nv"></i>
+        {/if}
+    </h1>
+    <p class="fly-home-info">
+        <i class="iconfont icon-shijian"></i><span>{:toDate($userInfo['reg_time'],'Y-m-d')} 加入</span>
+        {if condition="$userInfo['city']"}
+        <i class="iconfont icon-chengshi"></i><span>{:toCity($userInfo['city'])}</span>
+        {/if}
+    </p>
+    {if condition="$userInfo['motto']"}
+    <p class="fly-home-sign">（ {$userInfo.motto}）</p>
+    {/if}
+</div>-->
+
+{include file="common/footer"/}
+<script>
+  $(function() {
+    FastClick.attach(document.body);
+  });
+</script>

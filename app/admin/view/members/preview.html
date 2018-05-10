@@ -1,0 +1,215 @@
+{include file="common/head"/}
+<style type="text/css">
+    .print-btn{
+        height: 38px;
+        display: block;
+    }
+    .print-btn-right{
+        display: inline-block;
+        right: 0;
+        position: absolute;
+    }
+</style>
+<div class="print-btn">
+    <div class="print-btn-right">
+        <input type="button" class="layui-btn" value="打印"onclick="javascript:window.print();" />
+        <input type="button" class="layui-btn" value="打印预览" onclick="preview(1)"/>
+    </div>
+</div>
+
+<!-- 登记表预览 -->
+<div class="admin-main layui-anim layui-anim-upbit">
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>登记表预览</legend>
+    </fieldset>
+<script>
+    function preview(oper)
+        {
+        if (oper<10)
+            {
+                    bdhtml=window.document.body.innerHTML;//获取当前页的html代码
+                    var print_content= document.getElementById("print_content").innerHTML; 
+                    window.document.body.innerHTML=print_content;
+                    window.print(print_content);
+                } else {
+                    window.print();
+            }
+        }
+</script>
+                <div id="print_content">
+                <br />
+                <h3 style="text-align:center;font-size:24px; margin-bottom:10px; font-weight:bold;">立人教育  学员登记表</h3>
+
+                <br />
+                    <table style="margin:auto; font-size:12px; height:30px" width="800">
+                        <tr border="0">
+                            <td>填表日期：</td>
+                            <td>学员编号：</td>
+                        </tr>
+                       </table>
+                    <table style="margin:auto;font-size:12px;" width="800" border="1">
+                        <tr height="10">
+                            <td width="100" height="40" style="text-align:center">报考院校</td>
+                            <td width="250" colspan="3">&nbsp;&nbsp;{$res.university}</td>
+                            <td width="100"  height="40" style="text-align:center">报考专业</td>
+                            <td width="200" colspan="3">&nbsp;&nbsp;{$res.university_apply}</td>
+                            <td width="150" rowspan="4"><img style="width:90%;margin:0 auto;display:block;" onerror="this.src='/public/static/home/images/default_none.png'" src="/{$res.enregister_pic}"></td>
+                        </tr>
+                        <tr height="10">
+                        <td width="100"  height="40" style="text-align:center">报读层次</td>
+                        <td colspan="7" width="550">&nbsp;&nbsp;
+                          <input type="checkbox" {if condition="$res.university_course eq '高升专'"}checked{/if}>高升专&nbsp;
+                          <input type="checkbox" {if condition="$res.university_course eq '高升本'"}checked{/if}>高升本&nbsp;
+                          <input type="checkbox" {if condition="$res.university_course eq '专升本'"}checked{/if}>专升本&nbsp;
+                          <input type="checkbox" {if condition="$res.university_course eq '本升本'"}checked{/if}>本升本&nbsp;
+                          <input type="checkbox" {if condition="$res.university_course eq '其他'"}checked{/if}>专报本
+                        </td>
+                        </tr>
+                        <tr>
+                        <td width="100" height="40" style="text-align:center">学习类型</td>
+                        <td colspan="7" width="550">&nbsp;&nbsp;
+                          <input type="checkbox" {if condition="$res.university_type eq '网络教育'"}checked{/if}>网络教育&nbsp;
+                          <input type="checkbox" {if condition="$res.university_type eq '成人高考'"}checked{/if}>成人高考&nbsp;
+                          <input type="checkbox" {if condition="$res.university_type eq '开放教育'"}checked{/if}>开放教育&nbsp;
+                          <input type="checkbox" {if condition="$res.university_type eq '自学考试'"}checked{/if}>自学考试&nbsp;
+                          <input type="checkbox" {if condition="$res.university_type eq '其他'"}checked{/if}>其他
+                        </td>
+
+                        </tr>
+
+                        <tr>
+                        <td width="100" height="40" style="text-align:center">姓名</td>
+                        <td width="100">&nbsp;&nbsp;{$res.name}</td>
+                        <td width="40" height="40" style="text-align:center">性别</td>
+                        <td width="80">&nbsp;&nbsp;
+                          <input type="checkbox" {if condition="$res.sex eq 1"}checked{/if}>男
+                          <input type="checkbox" {if condition="$res.sex eq 2"}checked{/if}>女
+                        </td>
+                        <td width="50" height="40" style="text-align:center">民族</td>
+                        <td width="30">&nbsp;&nbsp;{$res.nation}</td>
+                        <td width="50" height="40" style="text-align:center">籍贯</td>
+                        <td width="150">&nbsp;&nbsp;{$res.p_origin}</td>
+                        </tr>
+                        <tr>
+                        <td width="100" height="40" style="text-align:center">身份证号码</td>
+                        <td colspan="4" width="">&nbsp;&nbsp;{$res.idcard}</td>
+                        <td width="100" height="40" style="text-align:center">公司及职位</td>
+                        <td colspan="3" >&nbsp;&nbsp;{$res.company}</td>
+                        </tr>
+                        <tr>
+                        <td height="40" style="text-align:center">原毕业院校及专业</td>
+                        <td colspan="3">&nbsp;&nbsp;{$res.old_school}</td>
+                        <td colspan="2" height="40" style="text-align:center">文化程度</td>
+                        <td colspan="3">&nbsp;&nbsp;
+                          <input type="checkbox" {if condition="$res.education eq '高中'"}checked{/if}>高中&nbsp;
+                          <input type="checkbox" {if condition="$res.education eq '中专'"}checked{/if}>中专&nbsp;
+                          <input type="checkbox" {if condition="$res.education eq '大专'"}checked{/if}>大专&nbsp;
+                          <input type="checkbox" {if condition="$res.education eq '本科'"}checked{/if}>本科&nbsp;
+                          <input type="checkbox" {if condition="$res.education eq '其他'"}checked{/if}>其他
+                        </td>
+                        </tr>
+                        <tr>
+                        <td height="40" style="text-align:center">现住址</td>
+                        <td colspan="8">&nbsp;&nbsp;{$res.address}&nbsp;&nbsp;&nbsp;&nbsp;(邮寄凭证使用)</td>
+                        </tr>
+                        <tr>
+                        <td height="40" style="text-align:center">电话：</td>
+                        <td colspan="3">&nbsp;&nbsp;{$res.tel}</td>
+                        <td colspan="5" height="40" style="text-align:left">&nbsp;&nbsp;紧急联系电话：{$res.em_tel}{$res.em_name}</td>
+                        </tr>
+                        <tr>
+                        <td height="40" style="text-align:center">QQ</td>
+                        <td colspan="3">&nbsp;&nbsp;{$res.qq}</td>
+                        <td colspan="5" height="40" style="text-align:left"></td>
+                        </tr>
+                        <tr>
+                        <td colspan="9" height="40" style="text-align:left">
+                          &nbsp;&nbsp;我学习的目的：&nbsp;&nbsp;{$res.study_md}
+                          <!-- <input type="checkbox" if condition="$res.study_md eq '自我提升'"}checked{/if}>自我提升 &nbsp;&nbsp;                
+                          <input type="checkbox" if condition="$res.study_md eq '岗位要求'"}checked{/if}>岗位要求       &nbsp;&nbsp;         
+                          <input type="checkbox" if condition="$res.study_md eq '就业需求'"}checked{/if}>就业需求&nbsp;&nbsp;
+                          <input type="checkbox" if condition="$res.study_md eq '入户需求'"}checked{/if}>入户需求&nbsp;&nbsp;
+                          <input type="checkbox" if condition="$res.study_md eq '报考'"}checked{/if}>报考&nbsp;&nbsp;
+                          <input type="checkbox" if condition="$res.study_md eq '其它'"}checked{/if}>其它&nbsp;&nbsp; -->
+                        </td>
+                        </tr>
+                        <tr>
+                        <td colspan="9" height="40" style="text-align:left">&nbsp;&nbsp;学费缴纳情况： 应收学费： &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;               实收学费：</td>
+                        </tr>
+                        <tr >
+                        <td height="40" width="100" style="text-align:center">日期</td>
+                        <td height="40" width="100" style="text-align:center">票具号码</td>
+                        <td height="40" width="100" style="text-align:center">金额</td>
+                        <td height="40" width="100" style="text-align:center">日期</td>
+                        <td height="40" width="100" style="text-align:center">票具号码</td>
+                        <td height="40" width="100" style="text-align:center">金额</td>
+                        <td height="40" width="100" style="text-align:center">日期</td>
+                        <td height="40" width="100" style="text-align:center">票具号码</td>
+                        <td height="40" width="100" style="text-align:center">金额</td>
+                        </tr>
+                        <tr height="40" style="text-align:center">
+                        <td>{$res.f_date}</td>
+                        <td>{$res.f_date_num}</td>
+                        <td>{$res.f_money}</td>
+                        <td>{$res.s_date}</td>
+                        <td>{$res.s_date_num}</td>
+                        <td>{$res.s_money}</td>
+                        <td>{$res.t_date}</td>
+                        <td>{$res.t_date_num}</td>
+                        <td>{$res.t_money}</td>
+                        </tr>
+<!--                         <tr>
+                        <td height="40" colspan="4" rowspan="2">&nbsp;&nbsp;课程教学服务期限：{$res.study_yeah}</td>
+                        <td height="40" style="text-align:left" colspan="3">&nbsp;&nbsp;接待老师：{$res.teacher}</td>
+                        <td height="40" style="text-align:left" colspan="2">&nbsp;&nbsp;首次咨询时间：{$res.f_teacher_date}</td>
+                        </tr> -->
+<!--                         <tr>
+
+                        <td height="40" style="text-align:left" colspan="3">&nbsp;&nbsp;首次咨询老师：{$res.f_teacher}</td>
+                        <td height="40" style="text-align:left" colspan="2">&nbsp;&nbsp;首接来源渠道：{$res.f_soure}</td>
+                        </tr> -->
+<!--                         <tr>
+                        <td colspan="9" height="40" style="text-align:left">&nbsp;&nbsp;我对接待老师的评价： 
+                              <input type="checkbox" {if condition="$res.f_pingjia eq 0"}checked{/if}>不满意   &nbsp;
+                              <input type="checkbox" {if condition="$res.f_pingjia eq 1"}checked{/if}>一般  &nbsp;
+                              <input type="checkbox" {if condition="$res.f_pingjia eq 2"}checked{/if}>满意    &nbsp; 
+                              <input type="checkbox" {if condition="$res.f_pingjia eq 3"}checked{/if}>非常满意</td>
+                        </tr> -->
+                        <tr>
+                        <td height="40" style="text-align:left" colspan="9">&nbsp;&nbsp;其他备注：{$res.other_remarks}</td>
+                        
+                        </tr>
+                        <tr>
+
+                        <td colspan="9" style="font-size:0; padding:10px">
+                        <img src="/{$res.idcard_pic}" onerror="this.src='/public/static/home/images/default_none.png'" style="border: none;   width: 20%;       height: 155px;" />
+                        <img src="/{$res.f_idcard_pic}" onerror="this.src='/public/static/home/images/default_none.png'" style="border: none;   width: 20%;        height: 155px;" />
+                        <img src="/{$res.graduate_pic}" onerror="this.src='/public/static/home/images/default_none.png'" style="border: none;   width: 20%;        height: 155px;" />
+                        <img src="/{$res.verification_pic}" onerror="this.src='/public/static/home/images/default_none.png'" style="border: none;   width: 20%;       height: 155px;" />
+                        <img src="/{$res.work_pic}" onerror="this.src='/public/static/home/images/default_none.png'" style="border: none;   width: 20%;        height: 155px;" />
+                        </td>
+                        
+                        </tr>
+                        </table>
+                        <br />
+                </div>
+
+</div>
+
+
+
+
+{include file="common/foot"/}
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+{include file="common/head"/}
+
+<div class="admin-main layui-anim layui-anim-upbit">
+
+    <fieldset class="layui-elem-field layui-field-title">
+
+        <legend>sitemap</legend>
+
+    </fieldset>
+
+    <blockquote class="layui-elem-quote">
+
+        <a onclick="make()" class="layui-btn layui-btn-sm">生成sitemap</a><span style="float: right;    height: 30px; line-height: 30px;">最后生成时间：{$time}</span>
+
+    </blockquote>
+
+    <table class="layui-table" id="list" lay-filter="list"></table>
+
+</div>
+
+<script type="text/javascript" src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdn.bootcss.com/layer/3.1.0/layer.js"></script>
+{include file="common/foot"/}
+<script>
+
+function make(){
+    $.post("{:url('make')}",function(res){
+        console.log(res);
+        if(res.code > 0){
+            layer.msg(res.msg,{time:1000,icon:1});
+        }
+    })
+}
+
+</script>

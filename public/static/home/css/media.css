@@ -1,0 +1,489 @@
+html{ font-size:62.5%;}
+body{font-size:1.6rem;font-family: "Microsoft Yahei", "Open Sans", sans-serif;}
+a {
+  color: #00a1ff;
+  text-decoration: none;
+}
+a:hover{ text-decoration: none; color: #00a1ff;}
+img {
+  max-width: 100%;
+}
+
+
+@media (max-width: 767px) {
+    /*在小于768像素的屏幕里,这里的样式才生效*/  
+            .customer_service{ display: none; }
+        .header-paty-1 span{ display: inline-block; }
+    .nav_tel{ display: none;}
+    .cd-slider-nav{ height: 25px; }
+    #banner-1{    height: 180px;    background-size: 100%;}
+    .banner-1-1{background-color: #ffffff;
+    opacity: 0.8 !important;
+    margin-top: 37px !important;
+    border-radius: 5px;
+    display: inline-block !important;
+    width: 54%;
+    height: 59px;
+    padding: 4px 1px !important;
+    z-index: 99999999;}
+    .banner-1-1 p{color: #848484; font-size:12px}
+    .banner-1-1 span{color: #848484;font-size:12px}
+    .banner-1-1 span i{font-size:18px;color: #4a4a4a;}
+
+	.index-info-bg{ top:-1rem; }
+	.news-main{ margin-bottom:auto !important; }
+	
+
+
+    #banner-2 img{    height: 146px;
+    width: auto;
+    margin-top: -49px; }
+    #banner-3 img{height: 193px;
+    width: auto;
+    margin-top: -27px;}
+    #banner-4 img{   height: 146px;
+    width: auto;
+    margin-top: -49px; }
+
+    .header p, nav,.index-Colleges{ width: 90%; margin: 0 auto;}
+      .nav-list h3{ border-bottom: 1px solid #eee;
+    font-size: 27px;
+    text-align: center;
+    line-height: 70px;}
+    nav .nav-list > li a{
+    	line-height: 38px;
+    }
+    nav .nav-list > li{margin-bottom:auto}
+    .login-index{ display: none;}
+    .cd-hero{ margin-bottom: 10px;}
+    .cd-hero-slider .cd-full-width{ left:0;    padding-top: 30px;}
+    
+    .index-news-left,.index-news-right{ width: 100%;margin: 0 0 2rem 0;}
+    .index-news-left-blue ul li a,.index-news-left-yellow ul li a{ font-size:1.2rem}
+    .index-info{ background-size: auto;}
+    .index-info h2,.index-info ul{ width: 80%;}
+    .index-info-more a{ width: 50%;}
+    .cd-hero-slider .cd-half-width{ left: auto;}
+    .cd-slider-nav a {
+    border: 1px solid #fff;
+    border-radius: 1rem;
+    height: 1rem;
+    width: 1rem;
+}
+.index-news-main h3, .index-Colleges h3{font-size: 18px;    line-height: 85px;}
+.index-news-left-blue h4,.index-news-left-yellow h4{ font-size: 18px;}
+.index-news-left-blue ul li,.index-news-left-yellow ul li{ line-height: 24px;   overflow: hidden;    height: 24px;}
+.myscroll ul{height: 108px;
+    overflow: hidden;}
+.myscroll li {
+    height: 21px !important;
+    line-height: 21px !important;
+    overflow: hidden !important;
+    width: 80%;
+}
+.index-news-left-blue,.index-news-left-yellow{ height: 226px;box-shadow: 4px 6px 15px 0 #ddd;}
+.index-news-left-yellow{ height: 195px; }
+.index-news-left-yellow{ top:-4%;}
+.cd-hero-slider{ height:170px;}
+.cd-slider-nav .cd-marker{ height: 1rem;}
+.cd-slider-nav .cd-marker.item-1 {
+	margin-left: 0.5rem;
+}
+.cd-slider-nav li{ margin: 0 0.5rem;}
+.index-news-right{ height: 130px;}
+.index-news-left{ height: 180px;}
+.index-news{height: 479px;}
+.index-info-bl-more, .index-info-br-more, .index-info-bbl-more, .index-info-bbr-more{ height: auto; margin-top: 10px;}
+.index-Colleges-bg{     margin: 10px 0;}
+.index-Colleges-main ul li{ width: 50%;padding: 5px;}
+.index-Colleges-main ul li a span{     font-size: 1.4rem; }
+.index-Colleges-main ul li a p{height: 52px;text-align: justify; display: inline-block;
+    overflow: hidden;
+    line-height: 1.3rem;
+    font-size: 1.2rem;}
+.index-info h2{font-size: 2rem;
+    color: #fff;
+    text-align: center;
+    margin: 1rem auto;
+    padding: 2rem 0 1rem 0;
+    border-bottom: 1px solid #fff;}
+    
+.index-info-more a,.index-info-bl-more a, .index-info-br-more a, .index-info-bbl-more a, .index-info-bbr-more a{border-radius: 5px;padding: 8px 0; width: 25%;}
+.index-info-more{ margin-top: 1rem;}
+.index-info-bl h2, .index-info-br h2, .index-info-bbl h2, .index-info-bbr h2{    font-size: 2rem; width: 80%;
+    color: #fff;
+    text-align: center;
+    margin: 1rem auto;
+    padding: 1rem 0 1rem 0;
+    border-bottom: 1px solid #fff;}
+    
+.header-paty-1 span{ float: right;margin-left:auto;}
+.public-1{ font-size: 12px;}
+.index-info-bl,.index-info-br,.index-info-bbl,.index-info-bbr{  width: 100%; height: 285px;background-size: 100% 100%;}
+.index-info-br{ width:100%; top:295px;     }
+.index-info-bbl{ width: 100%; top:590px;}
+.index-info-bbr{width: 100%; top:886px;}
+.index-info-b{ height: 1182px;margin-top: 10px;}
+.index-info ul li a,.index-info-bl ul li a, .index-info-br ul li a, .index-info-bbl ul li a, .index-info-bbr ul li a{ font-size:1.6rem}
+.index-news-main h3 span, .index-Colleges h3 span{width: 25%;
+    background-color: #f8f8f8;display: inline-block;}
+
+.index-info-yellow,.index-info-green{     bottom: 15rem;height: 27%;}
+.link,.footer-main{ display: none;}
+    .nav-logo a img{ width: 120px;  height: 42px;}
+    nav .nav-menu{       padding: 0.8rem 0.8rem;}
+    .news-main-head ul li{ height: auto; margin: 0 3%;}
+    .news-main-head ul li:nth-last-child(1){line-height: 38px;}
+    .news-main-head ul li{ line-height: 38px;font-size: 12px;}
+    .news-main-head ul li span{background: white;
+    width: 100%;
+    display: inline-block;}
+    .news-main-head h3{ display: block; text-align: left;}
+    .news-main-head span a {
+    margin: 0 3%;
+	}
+	.news-main-head{ margin: auto auto !important; padding-bottom: 12px;display: none;}
+	
+	.news-main ul li{ height: auto;    padding-top: 10px;background: #fff;}
+	.news-main ul li img{margin: 0 auto;
+     border-radius: 50%;
+    display: block;
+    float: initial;}
+    .news-main ul li .news-info{ float: inherit;}
+    .news-main ul li .news-info h4{font-size: 14px;
+    margin-top: 8px;
+    color: #999999;
+    text-align: center;}
+    .news-main ul li .news-main-link {text-align: center;
+    float: initial;
+    margin: 10px;}
+    .news-main ul li .news-main-link a {
+    background-color: #00a1ff;
+    border: 1px solid #00a1ff;
+    border-radius: 0;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 14px;
+    margin: 0 auto;}
+    .news-main ul li .news-info h3{ font-size:18px; line-height: 36px; text-align: center;}
+     .news-main ul li .news-info h3 span{ font-size: 12px;
+    display: block;
+    margin: auto;}
+    .news-main ul li .news-info h3 span i{font-size: 12px; margin: 1px 4px;}
+    .news-main ul li .news-info{ margin: 5px 0;}
+    .news-fluid{ display: inline-block;}
+    .show-right{ display: none;}
+    .show-main{ width: 100%;margin-bottom: auto;}
+    .show-main-nav{font-size:12px;}
+    .show-title h3{ font-size:18px; line-height: 32px;}
+    .show-title span {
+    line-height: 30px;
+     margin-bottom: 16px;
+    font-size: 14px;
+    height: 20px;
+ }
+ .content{ font-size:12px; line-height: 24px;}
+ .show-tuijian h3{ font-size: 16px;}
+ .show-tuijian ul li{ width: 100%; line-height: 24px;}
+ .show-tuijian ul li a{font-size:12px;}
+ 
+ .news-list-info{ width: 100%;}
+ .news-list ul li{ height: 150px;}
+ .news-list ul li a{ display: inline-block;}
+ .news-list ul li a img{ display: none;}
+ .news-list-info h3{ font-size:16px;}
+ .news-list-info p{ font-size: 12px; line-height: 20px; height: auto;}
+ .news-list-info span{ font-size: 12px;}
+ .show-info{ margin-top: 10px !important ;}
+ .about-content{ margin-bottom: 10px;}
+ .about-nav{ display: none;}
+ .about-content{ width: 100%;}
+ .about-content h3{ font-size: 18px;}
+ .about-content-main {
+    font-size: 14px;
+    line-height: 28px;}
+    
+    
+    
+    .search-main{ margin-top:51px; width: auto;}
+    .search-index{ width: 80%; margin: 30px auto;}
+    .search-index h3 span{ font-size: 18px;}
+    .search-index h3{ font-size:14px;}
+    .search-card-num,.search-telphone,.search-yanzhengma { font-size: 14px;background-size: 15%;
+    border-radius: 4px;
+    height: 30px;}
+    .search-telphone,.search-yanzhengma{ background-size: 11%;}
+    .search-card-num-input, .search-telphone-input, .search-yanzhengma-input{ padding-left:50px;}
+    .search{ background-size: auto;}
+    
+    
+    .search-result{ height: 650px;margin-top: 51px;}
+    .search-result{ position: relative;}
+    .search-result-left{ width: 100%; position: absolute;top: 230px}
+    .search-result-left-top ul li, .search-result-left-bottom ul li{    color: #666;
+    font-size: 12px;
+    float: left;
+    width: 100%;
+    line-height: 24px;}
+    .search-result-right{ width: 100%; position: absolute;padding-top: 15px;}
+    .search-result-left-top h3 span, .search-result-left-bottom h3 span {
+    color: #333;
+    width: 100%;
+    font-size: 16px;
+    display: inline-block;}
+    .search-result-left-top h3, .search-result-left-bottom h3 {
+    color: #333333;
+    font-weight: bold;
+    text-align: center;
+    color: #ddd;
+    font-size:12px;
+    margin-bottom: 5px;
+}
+    .search-result-right img{ width: 30%;}
+    .search-result-right a {
+    background: #40a7f2;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    width: 82px;
+    text-align: center;
+    margin-top: 10px;
+    padding: 8px 0;
+    font-size: 12px;
+    border-radius: 3px;}
+    .search-result-left-top, .search-result-left-bottom{ margin: 0 auto;}
+    .search-result-left-top, .search-result-left-bottom{ height: 216px;}
+    .event_list li p span{ width: 166px !important; }
+    .event_list li p{ width: auto !important; }
+ 
+}  
+@media (min-width: 768px) and (max-width: 991px) {  
+    /*在768和991像素之间的屏幕里,这里的样式才生效*/ 
+    .nav_tel{ display: none;} 
+    .header p, nav,.index-Colleges{ width: 90%; margin: 0 auto;}
+    .index-news-left{ width: 100%;margin-bottom: 6rem;}
+	  .index-news-right{ width: 100%;}
+	  .index-news{ height: 765px;}
+	  .index-info{ background-size:auto;}
+.index-info-bl{  width: 100%; background-size:100% ;}
+.index-info-br{ width:100%; top:510px;background-size:100% ;}
+.index-info-bbl{ width: 100%; top:1020px;background-size:100% ;}
+.index-info-bbr{ width: 100%; top:1530px; background-size:100% ;}
+		.index-Colleges-main ul li{ width: 50%; padding: 1rem;}
+		  .nav-list h3{ border-bottom: 1px solid #eee;
+    font-size: 27px;
+    text-align: center;
+    line-height: 70px;}
+		    nav .nav-list > li a{
+    	line-height: 38px;
+    }
+    nav .nav-list > li{margin-bottom:auto}
+		.index-info-b{ height: 2020px;}
+		    .nav-logo a img{ width: 120px;  height: 42px;}
+    nav .nav-menu{    padding: 1rem 1rem;}
+    .news-main ul li .news-info h3 span{margin: 10px 0;
+    display: block;}
+    .news-main ul li .news-info h4 {
+    margin-top: 20px;
+}
+.myscroll li {
+border: 1px solid #000;
+    height: 21px !important;
+    margin-left: 0 !important;
+    line-height: 21px !important;
+    overflow: hidden !important;
+}
+ .news-list-info{ width: 100%;}
+ .news-list ul li{ height: 150px;}
+ .news-list ul li a{ display: inline-block;}
+ .news-list ul li a img{ display: none;}
+ .news-list-info h3{ font-size:16px;}
+ .news-list-info p{ font-size: 12px; line-height: 20px; height: auto;}
+ .news-list-info span{ font-size: 12px;}
+ 
+ 
+     .search-main{ margin-top:51px; width: auto;}
+    .search-index{ margin: 30px auto;}
+    .search-index h3 span{ font-size: 18px;}
+    .search-index h3{ font-size:14px;}
+    .search-card-num,.search-telphone,.search-yanzhengma { font-size: 14px;background-size: 15%;
+    border-radius: 4px;
+    height: 30px;}
+    .search-telphone,.search-yanzhengma{ background-size: 11%;}
+    .search-card-num-input, .search-telphone-input, .search-yanzhengma-input{ padding-left:50px;}
+    .search{ background-size: auto;}
+ 
+     .search-result{ height: 810px;margin-top: 51px;}
+    .search-result{ position: relative;}
+    .search-result-left{ width: 100%; position: absolute;top: 380px}
+    .search-result-left-top ul li, .search-result-left-bottom ul li{    color: #666;
+    font-size: 12px;
+    float: left;
+    width: 100%;
+    line-height: 24px;}
+    .search-result-right{ width: 100%; position: absolute;padding-top: 15px;}
+    .search-result-left-top h3 span, .search-result-left-bottom h3 span {
+    color: #333;
+    width: 100%;
+    font-size: 16px;
+    display: inline-block;}
+    .search-result-left-top h3, .search-result-left-bottom h3 {
+    color: #333333;
+    font-weight: bold;
+    text-align: center;
+    color: #ddd;
+    font-size:12px;
+    margin-bottom: 5px;
+}
+    .search-result-right img{ width: 30%;}
+    .search-result-right a {
+    background: #40a7f2;
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    width: 82px;
+    text-align: center;
+    margin-top: 10px;
+    padding: 8px 0;
+    font-size: 12px;
+    border-radius: 3px;}
+    .search-result-left-top, .search-result-left-bottom{ margin: 0 auto;}
+    .search-result-left-top, .search-result-left-bottom{ height: 216px;}
+         .customer_service{ background-color: #4e3a93; width: 70px; position: fixed; top:30%; right: 0; z-index: 999; }
+        
+        .customer_service_1 img{padding: 10px 10px 5px 10px;
+    display: block}
+        .customer_service_1 p{    font-size: 14px;
+    line-height: 20px;}
+        .customer_service_2{ border-top:1px solid #f8f8f8; border-bottom:1px solid #f8f8f8;  }
+        .customer_service_2, .customer_service_3{    width: 68%;
+    margin: 10px auto;}
+    .customer_service_2 img{ margin-top: 10px !important; }
+        .customer_service_2 img, .customer_service_3 img{margin: 0 auto;    display: block;}
+        .customer_service_2 p, .customer_service_3 p{
+    height: auto;
+    margin: 10px 0;}
+        .customer_service_2 p a, .customer_service_3 p a{    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    display: block;
+    width: 83%;
+    height: 22px;
+    margin: 0 auto;
+    line-height: 20px}
+    .header-paty-1 span{ display: inline-block; }
+ 
+}  
+@media (min-width: 992px) and (max-width: 1199px) {  
+    /*在992和1199像素之间的屏幕里,这里的样式才生效*/  
+    .nav_tel{ display: none;}
+    .header p, nav{ width: 90%; margin: 0 auto;}
+    		.index-Colleges-bg {
+    
+ }
+  .nav-list h3{ border-bottom: 1px solid #eee;
+    font-size: 27px;
+    text-align: center;
+    line-height: 70px;}
+ .index-info-bg{ }
+ .index-info{ width: 98%;background-size:auto;}
+ 	.index-Colleges-main ul li{ width: 33.33%; padding: 1rem;}
+ 	    nav .nav-list > li a{
+    	line-height: 38px;
+    }
+    nav .nav-list > li{margin-bottom:auto}
+    .nav-logo a img{ width: 120px;  height: 42px;}
+    nav .nav-menu{    padding: 1rem 1rem;}
+ .index-Colleges,.link-main,.footer-main{ width: 94%; margin: 0 auto;}	
+.index-info-bl{  width: 67%; }
+.index-info-br{ width:30%;}
+.index-info-bbl{ width: 47%;}
+.index-info-bbr{ width: 50%; }
+.index-info-green{ display: none;}
+
+     .search-main{ margin-top:51px; width: auto;}
+    .search-index{ margin: 30px auto;}
+    .search-index h3 span{ font-size: 18px;}
+    .search-index h3{ font-size:14px;}
+    .search-card-num,.search-telphone,.search-yanzhengma { font-size: 14px;background-size: 10%;
+    border-radius: 4px;
+    height: 30px;}
+    .search-telphone,.search-yanzhengma{ background-size: 7%;}
+    .search-card-num-input, .search-telphone-input, .search-yanzhengma-input{ padding-left:50px;}
+    .search{ background-size: auto;}
+        .customer_service{ background-color: #4e3a93; width: 70px; position: fixed; top:30%; right: 0; z-index: 999; }
+        .customer_service_1{}
+        .customer_service_1 img{padding: 10px 10px 5px 10px;
+    display: block}
+        .customer_service_1 p{    font-size: 14px;
+    line-height: 20px;}
+        .customer_service_2{ border-top:1px solid #f8f8f8; border-bottom:1px solid #f8f8f8;  }
+        .customer_service_2, .customer_service_3{    width: 68%;
+    margin: 10px auto;}
+    .customer_service_2 img{ margin-top: 10px !important; }
+        .customer_service_2 img, .customer_service_3 img{margin: 0 auto;    display: block;}
+        .customer_service_2 p, .customer_service_3 p{
+    height: auto;
+    margin: 10px 0;}
+        .customer_service_2 p a, .customer_service_3 p a{    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    display: block;
+    width: 83%;
+    height: 22px;
+    margin: 0 auto;
+    line-height: 20px}
+    .header-paty-1 span{ display: inline-block; }
+}  
+@media (min-width: 1200px) {  
+    /*在大于1200像素的屏幕里,这里的样式才生效*/  
+    .banner-1-1{background-color: #ffffff; opacity: 0.8 !important; margin-top: 210px !important;    padding-top: 30px !important;  border-radius: 5px; display: inline-block; width: 28%; height: 160px;}
+    .banner-1-1 p{color: #848484; font-size:20px}
+    .banner-1-1 span{color: #848484;font-size:20px}
+    .banner-1-1 span i{font-size:50px;font-size:40px;color: #4a4a4a;}
+    #banner-2 img{height: 500px; width:auto}
+    #banner-3 img{height: 500px; width:auto}
+    #banner-4 img{height: 420px; width:auto}
+    .nav_tel{    float: right;}
+    .header p, nav, .index-news-main,.index-Colleges,.link-main,.footer-main,.news-main-head,.news-main,.show-info,.search-result{ width: 1200px; margin: 0 auto; }
+    	nav .nav-list {
+	    display: inline-block;
+	    margin-left: 20px;
+	}
+		.index-Colleges-bg {
+    
+ }
+ .nav-list h3{ display: none;}
+.index-info-bl{  width: 740px; }
+.index-info-br{ width:450px;}
+.index-info-bbl{ width: 580px;}
+.index-info-bbr{ width: 580px; }
+
+.index-Colleges-main ul li{ width: 33.33%; padding: 1rem;}
+
+
+        .customer_service{ background-color: #4e3a93; width: 70px; position: fixed; top:30%; right: 0; z-index: 999; }
+        .customer_service_1{}
+        .customer_service_1 img{padding: 10px 10px 5px 10px;
+    display: block}
+        .customer_service_1 p{    font-size: 14px;
+    line-height: 20px;}
+        .customer_service_2{ border-top:1px solid #f8f8f8; border-bottom:1px solid #f8f8f8;  }
+        .customer_service_2, .customer_service_3{    width: 68%;
+    margin: 10px auto;}
+    .customer_service_2 img{ margin-top: 10px !important; }
+        .customer_service_2 img, .customer_service_3 img{margin: 0 auto;    display: block;}
+        .customer_service_2 p, .customer_service_3 p{
+    height: auto;
+    margin: 10px 0;}
+        .customer_service_2 p a, .customer_service_3 p a{    color: #fff;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    display: block;
+    width: 83%;
+    height: 22px;
+    margin: 0 auto;
+    line-height: 20px}
+    .header-paty-1 span{ display: none; }
+
+}

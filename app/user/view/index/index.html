@@ -1,0 +1,86 @@
+{include file="common/loginHead"/}
+
+<div class="weixin-block_10"></div>
+<div class="fun-list">
+    <a class="weui-cell weui-cell_access" href="/user/index/messages">
+    <div class="weui-cell__hd"><img src="__STATIC__/user/img/message.svg"></div>
+    <div class="weui-cell__bd">
+      <p>消息通知</p>
+    </div>
+    <div class="weui-cell__ft messages_num"><span>{$num}</span></div>
+    </a>
+</div>
+
+<div class="fun-list">
+    <a class="weui-cell weui-cell_access" href="/user/index/education_list">
+    <div class="weui-cell__hd"><img src="__STATIC__/user/img/education.svg"></div>
+    <div class="weui-cell__bd">
+      <p>学历查询</p>
+    </div>
+    <div class="weui-cell__ft"></div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="/user/index/pay">
+    <div class="weui-cell__hd"><img src="__STATIC__/user/img/pay.svg"></div>
+    <div class="weui-cell__bd">
+      <p>缴费信息</p>
+    </div>
+    <div class="weui-cell__ft"></div>
+    </a>
+    <a class="weui-cell weui-cell_access" href="/user/index/contract_content_list">
+    <div class="weui-cell__hd"><img src="__STATIC__/user/img/contract.svg"></div>
+    <div class="weui-cell__bd">
+      <p>服务合同</p>
+    </div>
+    <div class="weui-cell__ft"></div>
+    </a>
+</div>
+<div class="block_10"></div>
+<div class="fun-list">
+    <a class="weui-cell weui-cell_access" href="/user/index/photos">
+    <div class="weui-cell__hd"><img src="__STATIC__/user/img/photos.svg"></div>
+    <div class="weui-cell__bd">
+      <p>证件照片</p>
+    </div>
+    <div class="weui-cell__ft"></div>
+    </a>
+</div>
+<div class="block_10"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <div class="fly-home" style="background-image: url();">
+    {if condition="$userInfo['avatar']"}
+    <img src="{:imgUrl($userInfo['avatar'])}" alt="{$userInfo.username}">
+    {else/}
+    <img src="__STATIC__/user/images/avatar/default.png" alt="{$userInfo.username}">
+    {/if}
+    <h1>
+        {$userInfo.username}
+        {if condition="$userInfo['sex'] eq 1"}
+        <i class="iconfont icon-nan"></i>
+        {else/}
+        <i class="iconfont icon-nv"></i>
+        {/if}
+    </h1>
+    <p class="fly-home-info">
+        <i class="iconfont icon-shijian"></i><span>{:toDate($userInfo['reg_time'],'Y-m-d')} 加入</span>
+        {if condition="$userInfo['city']"}
+        <i class="iconfont icon-chengshi"></i><span>{:toCity($userInfo['city'])}</span>
+        {/if}
+    </p>
+    {if condition="$userInfo['motto']"}
+    <p class="fly-home-sign">（ {$userInfo.motto}）</p>
+    {/if}
+</div>-->
+
+{include file="common/footer"/}

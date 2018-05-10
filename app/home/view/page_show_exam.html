@@ -1,0 +1,18 @@
+{include file="common/head"/}
+<div class="news-fluid">
+	<div class="news-ad"><img src="__HOME__/images/news-ad.png" /></div>
+</div>
+<div class="show-info">
+	<div class="about-nav">
+		<ul>
+			<li {if condition="$info.id eq '38'"}class="selected"{/if}><a href="/home-our-index-catId-38.html" title="考试必过技巧">考试必过技巧</a></li>
+		</ul>
+	</div>
+	<div class="about-content">
+		<h3>{$info.title}</h3>
+		<div class="about-content-main">{$info.content}</div>
+	</div>
+</div>
+
+<div style="clear: both;"></div>
+{include file="common/footer"/}

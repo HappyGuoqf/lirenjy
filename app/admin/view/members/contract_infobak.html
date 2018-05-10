@@ -1,0 +1,119 @@
+{include file="common/head"/}
+
+
+
+
+<style type="text/css">
+    .print-btn{
+        height: 38px;
+        display: block;
+    }
+    .print-btn-right{
+        display: inline-block;
+        right: 0;
+        position: absolute;
+    }
+    .print-btn-right a{
+            border: 1px solid #009688;
+    background-color: #009689;
+    font-size: 14px;
+    color: #fff;
+    display: block;
+    line-height: 38px;
+    width: 100px;
+    height: 38px;
+    text-align: center;
+    }
+</style>
+<div class="print-btn">
+    <div class="print-btn-right">
+        <div class="print-btn-right">
+        <a href="{:url('contract')}?id={$res.id}"/>查看合同</a>
+    </div>
+    </div>
+</div>
+<style type="text/css">
+ .layui-input, .layui-textarea{ border: none; border-bottom: 1px solid #ccc; }
+</style>
+
+<!-- 信息 -->
+<div class="admin-main layui-anim layui-anim-upbit">
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>{:lang('info')}填写</legend>
+    </fieldset>
+<form class="layui-form" action="">
+  <div class="layui-form-item">
+        <div class="layui-block">
+        <label class="layui-form-label">甲方</label>
+        <div class="layui-input-block">
+          <input type="text" name="company_name" placeholder="请输入名称" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+  </div>
+  <div class="layui-form-item">
+        <div class="layui-block">
+        <label class="layui-form-label">地址</label>
+        <div class="layui-input-block">
+          <input type="text" name="company_addr" placeholder="请输入地址" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+  </div>
+  <div class="layui-form-item">
+        <div class="layui-block">
+        <label class="layui-form-label">联系方式</label>
+        <div class="layui-input-block">
+          <input type="text" name="company_tel" placeholder="请输入联系方式" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+  </div>
+<hr />
+  <div class="layui-form-item">
+        <div class="layui-block">
+        <label class="layui-form-label">乙方</label>
+        <div class="layui-input-block">
+          <input type="text" name="customer_name" placeholder="请输入名称" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+  </div>
+  <div class="layui-form-item">
+        <div class="layui-block">
+        <label class="layui-form-label">地址</label>
+        <div class="layui-input-block">
+          <input type="text" name="customer_addr" placeholder="请输入地址" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+  </div>
+  <div class="layui-form-item">
+        <div class="layui-block">
+        <label class="layui-form-label">联系方式</label>
+        <div class="layui-input-block">
+          <input type="text" name="customer_tel" placeholder="请输入联系方式" autocomplete="off" class="layui-input">
+        </div>
+      </div>
+  </div>
+  <div class="layui-form-item">
+    <div class="layui-input-block">
+      <button class="layui-btn" lay-submit lay-filter="formDemo">立即提交</button>
+      <button type="reset" class="layui-btn layui-btn-primary">重置</button>
+    </div>
+  </div>
+</form>
+<!-- 学员信息 -->
+
+
+{include file="common/foot"/}
+<script>
+layui.use('form', function(){
+  var form = layui.form;
+  
+  //监听提交
+  form.on('submit(formDemo)', function(data){
+    layer.msg(JSON.stringify(data.field));
+    return false;
+  });
+});
+</script>
+</div>
+
+</body>
+</html>

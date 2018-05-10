@@ -1,0 +1,114 @@
+{include file="common/head"/}
+
+
+
+
+<style type="text/css">
+    .print-btn{
+        height: 38px;
+        display: block;
+    }
+    .print-btn-right{
+        display: inline-block;
+        right: 0;
+        position: absolute;
+    }
+</style>
+<div class="print-btn">
+    <div class="print-btn-right">
+        <input type="button" class="layui-btn" value="打印"onclick="javascript:window.print();" />
+        <input type="button" class="layui-btn" value="打印预览" onclick="preview(1)"/>
+    </div>
+</div>
+{include file="common/foot"/}
+</div>
+
+
+
+<!-- 登记表预览 -->
+<div class="admin-main layui-anim layui-anim-upbit">
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>合同预览</legend>
+    </fieldset>
+<script>
+    function preview(oper)
+        {
+        if (oper<10)
+            {
+                    bdhtml=window.document.body.innerHTML;//获取当前页的html代码
+                    var print_content= document.getElementById("print_content").innerHTML; 
+                    window.document.body.innerHTML=print_content;
+                    window.print(print_content);
+                } else {
+                    window.print();
+            }
+        }
+</script>
+                <div id="print_content">
+                <div style="width: 842px; margin:0 auto">
+                <div style="    font-size: 8px; border-bottom: 1px solid #6d6d6d;color: #6d6d6d;">合同编号：{$list.signature_num}</div><br />
+                      <div style="font-size: 24px; font-weight:bold;font-family: '华文中宋';text-align: center;">{$list.contract_title}</div>
+                      <br /><br /><br />
+                      <div style="font-size: 16px;font-family: '华文中宋';">
+                        <div style="height: 130px;">
+                          <div style="width: 45%; float: left;">
+                            <span style="display: block; line-height: 38px;">甲方：{$list.company_name}</span>
+                            <span style="display: block; line-height: 38px;;">地址：{$list.company_addr}</span>
+                          </div>
+                          <div style="width: 45%; float: right;">
+                            <span style="display: block;line-height: 38px;">乙方：{$list.name} </span>
+                            <span style="display: block;line-height: 38px;">身份证号：{$list.idcard}</span>
+                            <span style="display: block;line-height: 38px;">地址：{$list.address}</span>
+                          </div>
+                        </div>
+                      </div>
+                      {$list.company_content}
+                      <div style="font-size: 16px;font-family: '华文中宋';">
+                        <div style="height: 130px;">
+                          <div style="width: 45%; float: left;">
+                            <span style="display: block; line-height: 38px;">甲方</span>
+                            <span style="display: block; line-height: 38px;;">盖章：<img src="{$list.signature}" style="position:absolute; width:80px;" /></span>
+                            <span style="display: block; line-height: 38px;;">联系方式：{$list.company_phone}</span>
+                            <span style="display: block; line-height: 38px;;">签字时间：{:toDate($list.addtime,'Y年m月d日')}</span>
+                          </div>
+                          <div style="width: 45%; float: right;">
+                            <span style="display: block; line-height: 38px;">乙方</span>
+                            <span style="display: block; line-height: 38px;;">代表签字：<img src="{$list.signature}" style="position:absolute; width:80px;" /></span>
+                            <span style="display: block; line-height: 38px;;">联系方式：{$list.tel}</span>
+                            <span style="display: block; line-height: 38px;;">签字时间：{:toDate($list.addtime,'Y年m月d日')}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                </div>
+
+</div>
+
+
+
+
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

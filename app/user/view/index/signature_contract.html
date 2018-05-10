@@ -1,0 +1,61 @@
+{include file="common/loginHead"/}
+<style type="text/css">
+    .contract_title{ text-align: center; font-size:20px; margin-top:10px;  font-weight: normal;}
+    .contract_contant{text-indent: 2em;    font-size: 14px;    padding: 15px;}
+    .contract_agree{ margin-top: 20px; }
+    .signature_content{border: 1px solid #e8e8e8;}
+    .signature_y{ border-top:1px solid #e8e8e8; border-bottom:1px solid #e8e8e8;  }
+    .signature_j ul li img,.signature_y ul li img{width: 200px;  }
+    .signature_j ul li,.signature_y ul li{padding: 5px 15px;}
+    .signature_date{padding: 5px 15px;}
+    .signature_num{padding: 0 15px 5px 15px;}
+    .signature_tip{ padding-left:15px; }
+    .contract_contant p{ text-align: justify; }
+</style>
+<h1 class="contract_title">{$contract.title}</h1>
+
+<div class="contract_contant">
+{$contract.content}
+</div>
+
+
+
+<div class="signature_content">
+	<div class="signature_j">
+		<ul>
+			<li>甲方(盖章):</li>
+			<li><center><img src="{$list.signature}"></center></li>
+			<li>甲方签字:{$contract.company_name}</li>
+		</ul>
+	</div>
+	<div class="signature_y">
+		<ul>
+			<li>乙方(签字):</li>
+			<li><center><img src="{$list.signature}"></center></li>
+		</ul>
+	</div>
+	<div class="signature_date">日期：{$list.addtime}</div>
+	<div class="signature_num">合同编号：{$list.signature_num}</div>
+</div>
+<div class="weui-media-box__bd signature_tip">
+        <p class="weui-media-box__desc">温馨提示：此合同可在会员中心查看！</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{include file="common/footer"/}
+</body>
+</html>

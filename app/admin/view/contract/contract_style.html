@@ -1,0 +1,68 @@
+{include file="common/head"/}
+
+<div class="admin-main layui-anim layui-anim-upbit">
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>合同预览</legend>
+    </fieldset>
+<script>
+    function preview(oper)
+        {
+        if (oper<10)
+            {
+                    bdhtml=window.document.body.innerHTML;//获取当前页的html代码
+                    var print_content= document.getElementById("print_content").innerHTML; 
+                    window.document.body.innerHTML=print_content;
+                    window.print(print_content);
+                } else {
+                    window.print();
+            }
+        }
+</script>
+                <div id="print_content">
+                <div style="width: 842px; margin:0 auto">
+                <br />
+                      <div style="font-size: 24px; font-weight:bold;font-family: '华文中宋';text-align: center;">{$res.title}</div>
+                      <br /><br /><br />
+                      <div style="font-size: 16px;font-family: '华文中宋';">
+                        <div style="height: 130px;">
+                          <div style="width: 45%; float: left;">
+                            <span style="display: block; line-height: 38px;">甲方：{$res.company_name}</span>
+                            <span style="display: block; line-height: 38px;;">地址：{$res.company_addr}</span>
+                            <span style="display: block; line-height: 38px;;">电话：{$res.company_phone}</span>
+                          </div>
+                          <div style="width: 45%; float: right;">
+                            <span style="display: block;line-height: 38px;">乙方： </span>
+                            <span style="display: block;line-height: 38px;">身份证号：</span>
+                            <span style="display: block;line-height: 38px;">电话：</span>
+                          </div>
+                        </div>
+                      </div>
+                      <br />
+                      {$res.content}
+                      <br />
+                      <div style="font-size: 16px;font-family: '华文中宋';">
+                        <div style="height: 130px;">
+                          <div style="width: 45%; float: left;">
+                            <span style="display: block; line-height: 38px;">甲方</span>
+                            <span style="display: block; line-height: 38px;;">盖章：<img src="/public{$res.pic}" style="position:absolute; width:80px;" /></span>
+                          </div>
+                          <div style="width: 45%; float: right;">
+                            <span style="display: block; line-height: 38px;">乙方</span>
+                            <span style="display: block; line-height: 38px;;">签字：<img src="{$list.signature}" style="position:absolute; width:80px;" /></span>
+                            <span style="display: block; line-height: 38px;;">签字时间：{:toDate($list.addtime,'Y年m月d日')}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                </div>
+
+</div>
+
+
+{include file="common/foot"/}
+
+</div>
+<br /><br /><br /><br />
+</body>
+</html>

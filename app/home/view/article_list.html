@@ -1,0 +1,36 @@
+{include file="common/head"/}
+<div class="news-fluid">
+	<div class="news-ad"><img src="__HOME__/images/news-ad.png" /></div>
+</div>
+<div class="show-info">
+	<div class="show-main">
+		<div class="show-main-nav"><span>当前位置：</span><i><a href="/">首页</a></i> > <i>{$catname}</i> > 正文</div>
+		<div class="show-content">
+			<div class="news-list">
+				<ul>
+				{volist name="list" id="vo" page="5"}
+					<li>
+						<a href="{:url('home/'.$vo['catdir'].'/info',array('id'=>$vo['id'],'catId'=>$vo['catid']))}">
+							<img src="{$vo.title_thumb}" />
+							<div class="news-list-info">
+								<h3 style="{$vo.title_color};{$vo.title_weight}">{$vo.title}</h3>
+								<p>{$vo.description}</p>
+							</div>
+						</a>
+					</li>
+				{/volist}
+				{$page}
+				</ul>
+
+			</div>
+		</div>
+
+	</div>
+	<div class="show-right">
+		<a href="#"><img src="__HOME__/images/show-1.png"  /></a>
+		<a href="#"><img src="__HOME__/images/show-2.png"  /></a>
+		<a href="#"><img src="__HOME__/images/show-3.png"  /></a>
+	</div>
+</div>
+<div style="clear:both;"></div>
+{include file="common/footer"/}

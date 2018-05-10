@@ -1,0 +1,202 @@
+{include file="common/head"/}
+
+
+
+
+<style type="text/css">
+    .print-btn{
+        height: 38px;
+        display: block;
+    }
+    .print-btn-right{
+        display: inline-block;
+        right: 0;
+        position: absolute;
+    }
+</style>
+<div class="print-btn">
+    <div class="print-btn-right">
+        <input type="button" class="layui-btn" value="打印"onclick="javascript:window.print();" />
+        <input type="button" class="layui-btn" value="打印预览" onclick="preview(1)"/>
+    </div>
+</div>
+<style type="text/css">
+ .layui-input, .layui-textarea{ border: none; border-bottom: 1px solid #ccc; }
+</style>
+{include file="common/foot"/}
+<script>
+layui.use(['form', 'layedit', 'laydate','upload'], function(){
+  var form = layui.form
+  ,layer = layui.layer
+  ,layedit = layui.layedit
+  ,laydate = layui.laydate;
+  
+  //日期
+  laydate.render({
+    elem: '#date'
+  });
+  laydate.render({
+    elem: '#date1'
+  });
+  
+  //创建一个编辑器
+  var editIndex = layedit.build('LAY_demo_editor');
+ 
+  //自定义验证规则
+  form.verify({
+    title: function(value){
+      if(value.length < 5){
+        return '标题至少得5个字符啊';
+      }
+    }
+    ,pass: [/(.+){6,12}$/, '密码必须6到12位']
+    ,content: function(value){
+      layedit.sync(editIndex);
+    }
+  });
+  
+  //监听指定开关
+  form.on('switch(switchTest)', function(data){
+    layer.msg('开关checked：'+ (this.checked ? 'true' : 'false'), {
+      offset: '6px'
+    });
+    layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
+  });
+  
+  //监听提交
+  form.on('submit(demo1)', function(data){
+    layer.alert(JSON.stringify(data.field), {
+      title: '最终的提交信息'
+    })
+    return false;
+  });
+  
+  var $ = layui.jquery
+  ,upload = layui.upload;
+  
+  //普通图片上传
+  var uploadInst = upload.render({
+    elem: '#test1'
+    ,url: '/upload/'
+    ,before: function(obj){
+      //预读本地文件示例，不支持ie8
+      obj.preview(function(index, file, result){
+        $('#demo1').attr('src', result); //图片链接（base64）
+      });
+    }
+    ,done: function(res){
+      //如果上传失败
+      if(res.code > 0){
+        return layer.msg('上传失败');
+      }
+      //上传成功
+    }
+    ,error: function(){
+      //演示失败状态，并实现重传
+      var demoText = $('#demoText');
+      demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
+      demoText.find('.demo-reload').on('click', function(){
+        uploadInst.upload();
+      });
+    }
+  });
+  
+});
+</script>
+</div>
+
+
+
+<!-- 登记表预览 -->
+<div class="admin-main layui-anim layui-anim-upbit">
+    <fieldset class="layui-elem-field layui-field-title">
+        <legend>合同预览</legend>
+    </fieldset>
+<script>
+    function preview(oper)
+        {
+        if (oper<10)
+            {
+                    bdhtml=window.document.body.innerHTML;//获取当前页的html代码
+                    var print_content= document.getElementById("print_content").innerHTML; 
+                    window.document.body.innerHTML=print_content;
+                    window.print(print_content);
+                } else {
+                    window.print();
+            }
+        }
+</script>
+                <div id="print_content">
+                <div style="width: 842px; margin:0 auto">
+                <br />
+                      <div style="font-size: 24px; font-weight:bold;font-family: '华文中宋';text-align: center;">{$list.contract_title}</div>
+                      <br /><br /><br />
+                      <div style="font-size: 16px;font-family: '华文中宋';">
+                        <div style="height: 130px;">
+                          <div style="width: 45%; float: left;">
+                            <span style="display: block; line-height: 38px;">甲方：{$list.company_name}</span>
+                            <span style="display: block; line-height: 38px;;">地址：{$list.company_addr}</span>
+                          </div>
+                          <div style="width: 45%; float: right;">
+                            <span style="display: block;line-height: 38px;">乙方：{$list.name} </span>
+                            <span style="display: block;line-height: 38px;">身份证号：{$list.idcard}</span>
+                            <span style="display: block;line-height: 38px;">地址：{$list.address}</span>
+                          </div>
+                        </div>
+                      </div>
+                      <br />
+
+                      {$list.company_content}
+
+
+                       
+                      <br />
+                      <div style="font-size: 16px;font-family: '华文中宋';">
+                        <div style="height: 130px;">
+                          <div style="width: 45%; float: left;">
+                            <span style="display: block; line-height: 38px;">甲方</span>
+                            <span style="display: block; line-height: 38px;;">盖章：<img src="{$list.signature}" style="position:absolute; width:80px;" /></span>
+                            <span style="display: block; line-height: 38px;;">联系方式：{$list.company_phone}</span>
+                            <span style="display: block; line-height: 38px;;">签字时间：{:toDate($list.addtime,'Y年m月d日')}</span>
+                          </div>
+                          <div style="width: 45%; float: right;">
+                            <span style="display: block; line-height: 38px;">乙方</span>
+                            <span style="display: block; line-height: 38px;;">代表签字：<img src="{$list.signature}" style="position:absolute; width:80px;" /></span>
+                            <span style="display: block; line-height: 38px;;">联系方式：{$list.tel}</span>
+                            <span style="display: block; line-height: 38px;;">签字时间：{:toDate($list.addtime,'Y年m月d日')}</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    
+                </div>
+
+</div>
+
+
+
+
+
+
+
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

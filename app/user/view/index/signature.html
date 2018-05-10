@@ -1,0 +1,79 @@
+{include file="common/loginHead"/}
+<style type="text/css">
+.sign_title{}
+.canvasDiv{
+    margin: 0 auto;
+    width: 98%;
+    border: 1px solid #949494;
+}
+.imgDiv{
+    margin: 20px auto;
+    width: 80px;
+    border: 1px solid #949494;
+    height: 50px;
+}
+.btnDiv{
+    text-align: center;
+}
+
+#canvasEdit{
+
+	width: 100%;
+}
+ .contract_agree{ margin-top: 20px;width: 95%;    margin: 0 auto; }
+</style>
+
+<div class="sign_title">请在下面签名：</div>
+<div class="canvasDiv">
+	<div id="editing_area">
+		<canvas id="canvasEdit"></canvas>
+	</div>
+</div>
+<div class="btnDiv">
+	<a id="sign_clear" class="weui-btn weui-btn_mini weui-btn_default">重置</a>
+	<a id="sign_ok" class="weui-btn weui-btn_mini weui-btn_primary">预览</a>
+</div>
+<div class="imgDiv">
+	<span id="sign_show"></span>
+</div>
+<div class="contract_agree"><a href="javascript:;" id="agree_sign" class="weui-btn weui-btn_disabled weui-btn_primary">生成合同</a></div>
+<script type="text/javascript" src="__STATIC__/user/js/jquery.min.js"></script>
+<script type="text/javascript" src="__STATIC__/user/js/esign.js"></script>
+
+<script src="__STATIC__/user/js/jquery-weui.js"></script>
+
+
+<script type="text/javascript">
+$(function(){
+	//初始化动作，根据DOM的ID不同进行自定义，如果不写则内部默认取这四个
+	$().esign("canvasEdit", "sign_show", "sign_clear", "sign_ok");
+
+		$("#sign_ok").click(function(res) { 
+			$(".contract_agree a").removeClass("weui-btn_disabled");
+
+		});
+		$("#sign_clear").click(function(res) { 
+			$(".contract_agree a").addClass("weui-btn_disabled");
+		}); 
+});
+
+$("#agree_sign").click(function(){
+	var img = $("#sign_show").find("img");
+	var img_src = img[0].src;
+	$.post('signature',{id:{$id},user_id:{$user_id},signature:img_src},function(res){
+		if(res.code > 0){
+			$.alert({
+                        title: '提示消息',
+                        text: res.msg,
+                        onOK: function () {
+                          $(window).attr('location','/user/index/signature_contract&id='+{$id});
+                        }
+                      });
+		}
+
+	});
+});
+</script>
+
+</body>
+</html>
