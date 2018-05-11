@@ -253,18 +253,18 @@ public function signature_contract(){
     $this->assign('title','签字预览');
     $id = input('get.id');
     $data['state'] = 2;
-    $list = db('signature')->where(array('user_id'=>$this->user_id,'id'=>$id))->find();
+    // $list = db('signature')->where(array('user_id'=>$this->user_id,'id'=>$id))->find();
     db('apply')->where(array('user_id'=>$this->user_id,'state'=>1))->update($data);
-    $list['addtime'] = date('Y-m-d H:s',$list['addtime']);
-    $res = db('apply')->field('id,name')->find($id);
-    $contract_data = db('contract')->alias('c')
-    ->join('apply u','c.title=u.contract')
-    ->where('u.id',$id)
-    ->field('c.title,c.company_name,c.content,u.id,u.contract')
-    ->find();
-    $this->assign('contract',$contract_data);
-    $this->assign('list',$list);
-    return $this->fetch();
+    // $list['addtime'] = date('Y-m-d H:s',$list['addtime']);
+    // $res = db('apply')->field('id,name')->find($id);
+    // $contract_data = db('contract')->alias('c')
+    // ->join('apply u','c.title=u.contract')
+    // ->where('u.id',$id)
+    // ->field('c.title,c.company_name,c.content,c.pic,u.id,u.contract')
+    // ->find();
+    // $this->assign('contract',$contract_data);
+    // $this->assign('list',$list);
+    return $this->fetch('msg');
 }
 
 public function get_originn($idcard){

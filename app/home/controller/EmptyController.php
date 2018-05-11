@@ -127,21 +127,48 @@ class EmptyController extends Common{
     }
 
     public function record(){
-        $data = array(
-            'idcard' => '42118119881130231x',
-            'tel'   => '17665495306'
+        $data = input('post.');
+        $captcha = $data['verify'];
+        if(!captcha_check($captcha)){
+            $this->assign('verify',"1");
+        }else{
+            $where = array(
+                'idcard' => $data['idcard'],
+                'tel'   => $data['tel']
             );
-        $list = db('users_formal')->where($data)->field('id,university,idcard,tel,addtime')->select();
-        foreach ($list as $k => $v) {
-            $list[$k]['addtime'] = date('Y-m-d h:i:s',$v['addtime']);
+            $list = db('users_formal')->where($where)->field('id,university,idcard,tel,addtime')->select();
+            foreach ($list as $k => $v) {
+                $list[$k]['addtime'] = date('Y-m-d h:i:s',$v['addtime']);
+            }
+            $this->assign('num',count($list));
+            $this->assign('list',$list);
         }
-        $this->assign('num',count($list));
-        $this->assign('list',$list);
         return $this->fetch();
     }
 
     public function record_info($id){
+        $list = db('users_formal')->find($id);
+        $r = db('credentials')->field('user_id,enregister_pic,enregister_state')->where('enregister_state','2')->find($list['user_id']);
+        $this->assign('r',$r);
+        $where = array(
+            'idcard' => $list['idcard'],
+            'tel'   => $list['tel']
+            );
+        $info = db('users_formal')->where($where)->field('id,university,idcard,tel,addtime')->select();
+            foreach ($info as $k => $v) {
+                $info[$k]['addtime'] = date('Y-m-d h:i:s',$v['addtime']);
+            }
+        $this->assign('info',$info);
+        $this->assign('list',$list);
         return $this->fetch();
+    }
+    public function check_verify($data){
+        var_dump($data);
+        if(!captcha_check($captcha)){
+            return ["code"=>0,"msg"=>'验证码错误'];
+        }else{
+             //验证码正确
+        }
     }
 
 }

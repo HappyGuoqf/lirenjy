@@ -1,0 +1,74 @@
+{include file="common/head"/}
+<style type="text/css">
+#contactform label{ display: block; margin: 10px 0; }
+#contactform label em{color: #db4e43; display: inline;}
+#contactform label input{ margin-left:10px; }
+#contactform label textarea{ width: 380px; }
+</style>
+<div class="news-fluid">
+	<div class="news-ad"><img src="__HOME__/images/news-ad.png" /></div>
+</div>
+<div class="show-info">
+	<div class="about-nav">
+		<ul>
+            {volist name="category" catId="26" id="vo"}
+                {if condition="$vo['id'] eq 26"}
+                    {volist name="$vo.sub" id="v"}
+                        <li {if condition="input('catId') eq $v['id']"}class="selected"{/if}><a href="{:url('home/'.$vo['catdir'].'/index',['catId'=>$v['id']] )}" title="{$v.catname}">{$v.catname}</a></li>
+                    {/volist}
+                {/if}
+            {/volist}
+		</ul>
+	</div>
+	<div class="about-content">
+		<h3>{$info.title}</h3>
+		<div class="about-content-main">
+
+
+
+            <div id="contact-form-area">
+                <!-- Contact Form Start //-->
+                <form action="#" id="contactform">
+                <fieldset>                    
+                    <label>称呼 <em>*</em><input type="text" name="name" class="textfield" id="name" value=""></label><label>邮箱 <em>*</em><input type="text" name="email" class="textfield" id="email" value=""></label>
+                    <label>
+                    <textarea name="content" id="content" class="textarea" cols="2" rows="4"></textarea>
+                    </label>
+                    <input type="button" name="submit" class="buttoncontact" id="buttonsend" value="提交">
+                    <span class="loading" style="display: none;">Please wait..</span>
+                    <div class="clear"></div>
+                </fieldset>
+                </form>
+            </div>
+		</div>
+	</div>
+</div>
+<script>
+    $('#buttonsend').click(function(){
+        var name = $('#name').val();
+        var email = $('#email').val();
+        var content = $('#content').val();
+        if($.trim(name)==''){
+            alert('称呼不能为空');
+            return false;
+        }
+        if($.trim(email)==''){
+            alert('邮箱不能为空');
+            return false;
+        }
+        if($.trim(content)==''){
+            alert('内容不能为空');
+            return false;
+        }
+        $.post("/home-Contact-senMsg.html",{name:name,email:email,content:content},function(data){
+            if(data.status==1){
+                alert('留言成功！感谢您对我们的支持！');
+                window.location.href = "/contact-40.html"
+            }else{
+                alert('留言失败！重新提交试试！');
+            }
+        })
+    })
+</script>
+<div style="clear: both;"></div>
+{include file="common/footer"/}

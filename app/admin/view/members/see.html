@@ -375,6 +375,7 @@
                         <option value=""></option>
                         <option value="1" {if condition="$res.state eq 1"}selected{/if}>已毕业</option>
                         <option value="2" {if condition="$res.state eq 2"}selected{/if}>未毕业</option>
+                        <option value="3" {if condition="$res.state eq 3"}selected{/if}>在读中</option>
                       </select>
         </div>
       </div>
@@ -383,9 +384,11 @@
         <div class="layui-input-inline">
                       <select name="school_status">
                         <option value=""></option>
+                        <option value="注册学位" {if condition="$res.school_status eq '注册学位'"}selected{/if}>注册学位</option>
                         <option value="注册学籍" {if condition="$res.school_status eq '注册学籍'"}selected{/if}>注册学籍</option>
-                        <option value="已离校" {if condition="$res.school_status eq '已离校'"}selected{/if}>已离校</option>
+                        <option value="离校弃学" {if condition="$res.school_status eq '离校弃学'"}selected{/if}>离校弃学</option>
                         <option value="保留学籍" {if condition="$res.school_status eq '保留学籍'"}selected{/if}>保留学籍</option>
+                        <option value="完成学籍" {if condition="$res.school_status eq '完成学籍'"}selected{/if}>完成学籍</option>
                       </select>
         </div>
       </div>

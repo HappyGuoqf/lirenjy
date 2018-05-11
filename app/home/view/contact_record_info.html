@@ -1,47 +1,87 @@
 {include file="common/head"/}
 <style>
-.record{background-color: #f8f8f8;}
+.record{background-color: #f8f8f8;    margin-top: 0 !important;}
 .navbar{ font-size:12px; }
-.main-record-info{}
-.record_info{}
-.record_info h4{}
+.main-record-info{width: 65%; display: inline-block;margin-bottom: 40px;}
+.record_info{height: 150px;}
+.main-width{ width: 1000px;
+    margin: 20px auto;}
+.record_info h4{text-align: center;border-bottom: 1px solid #00a1ff;
+    height: 30px;width: 65%;margin: 0 auto;
+    line-height: 57px;}
+.record_info h4 span{     background: #f8f8f8;
+    width: 119px;
+    display: inline-block; }
 .record_info h4 i{}
-.record_info ul{}
-.record_info ul li{}
+.record_info ul{    margin-top: 20px;}
+.record_info ul li{height: 30px;padding-left: 15%;
+    line-height: 30px;
+    font-size: 12px;
+    width: 50%;display: inline-block;float: left;}
 .record_info ul li span{}
-.main-info-pic{}
-.main-info-pic img{}
-.main-info-pic a{}
+.main-info-pic{width: 30%;margin-top: 20px;
+    float: right;}
+.main-info-pic img{width: 150px;
+    height: 180px;
+    display: block;
+    margin: 0 auto;}
+.main-info-pic a{    width: 110px;
+    text-align: center;
+    height: 38px;
+    display: block;
+    margin-top: 10px;
+    background-color: #40a7f2;
+    color: #fff;
+    line-height: 38px;    margin: 15px auto;}
+    .record_list{    margin-bottom: 30px;}
+.record_list ul{padding: 20px 0;}
+.record_list ul li{height: 25px;
+    line-height: 25px;
+    border-bottom: 1px #717070 dashed;}
+.record_list ul li a{    font-size: 12px;
+    color: #3d3d3d;}
+.record_list ul li a:hover{ color: #ff0000;}
+.record_list ul li a span{ margin-left: 50px; }
 </style>
 <div class="show-info record">
 	<div class="navbar">当前位置：首页 > 学历信息 </div>
+	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 record_list">
+		<ul>
+		{volist name="info" id="vo"}
+			<li><a href="/home-contact-record_info-id-{$vo.id}.html">{$i}.{$vo.university}<span>{$vo.addtime}</span></a></li>
+		{/volist}
+		</ul>
+	</div>
+	<div class="main-width">
 	<div class="main-record-info">
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 record_info">
-			<h4>基础信息<i></i></h4>
+			<h4><span>基础信息</span><i></i></h4>
 			<ul>
-				<li>姓名：<span>张三</span></li>
-				<li>姓名：<span>张三</span></li>
-				<li>姓名：<span>张三</span></li>
-				<li>姓名：<span>张三</span></li>
-				<li>姓名：<span>张三</span></li>
-				<li>姓名：<span>张三</span></li>
+				<li>姓名：<span>{$list.name}</span></li>
+				<li>性别：<span>{if condition="$list.sex eq 1"}男{else /}女{/if}</span></li>
+				<li>民族：<span>{$list.nation}</span></li>
+				<li>入学时间：<span>{$list.enrol_date}</span></li>
+				<li>预计毕业时间：<span>{$list.graduation_date}</span></li>
+				<li>毕业证发放时间：<span>{$list.grant_date}</span></li>
 			</ul>
 		</div>
 		<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 record_info">
-			<h4>学籍信息<i></i></h4>
+			<h4><span>学籍信息</span><i></i></h4>
 			<ul>
-				<li>姓名：<span>张三</span></li>
-				<li>姓名：<span>张三</span></li>
-				<li>姓名：<span>张三</span></li>
-				<li>姓名：<span>张三</span></li>
-				<li>姓名：<span>张三</span></li>
-				<li>姓名：<span>张三</span></li>
+				<li>学校名称：<span>{$list.university}</span></li>
+				<li>层次：<span>{$list.university_course}</span></li>
+				<li>专业名称：<span>{$list.university_apply}</span></li>
+				<li>学习形式：<span>{$list.university_type}</span></li>
+				<li>学制：<span>{$list.study_yeah}</span></li>
+				<li>毕业状态：<span>{if condition="$list.state eq 1"}已毕业{elseif condition="$list.state eq 2"}未毕业{elseif condition="$list.state eq 3"}在读中{else /}未填写{/if}</span></li>
+				<li>学籍状态：<span>{$list.school_status}</span></li>
 			</ul>
 		</div>
 	</div>
 	<div class="main-info-pic">
-		<img src="/public/static/home/img/logo.png" />
-		<a href="">学信网查询</a>
+		<img src="/{$r.enregister_pic}" />
+		<a href="http://www.chsi.com.cn/">学信网查询</a>
+	</div>
 	</div>
 </div>
 {include file="common/footer"/}

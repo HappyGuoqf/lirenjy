@@ -2,12 +2,11 @@
 <style>
 .record{background-color: #f8f8f8;}
 .navbar{ font-size:12px; }
-.record_result{ padding: .5rem 0;
+.record_result{ padding: .5rem 13px;
     font-size: 12px;
     background: #fff;
-    border: 1px solid #cacaca;
-    text-align: center;
-    color: red;}
+    border: 1px solid #f3f3f3;
+    color: #00a1ff;}
 .record_list{    margin-bottom: 30px;}
 .record_list ul{padding: 20px 0;}
 .record_list ul li{height: 25px;
@@ -20,7 +19,7 @@
 </style>
 <div class="show-info record">
 	<div class="navbar">当前位置：首页 > 学历信息 </div>
-	<div class="record_result">查询到{$num}条信息</div>
+	<div class="record_result">{if condition="$verify eq 1"} 验证码错误 {else /}查询到{$num}条信息{/if}</div>
 	<div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 record_list">
 		<ul>
 		{volist name="list" id="vo"}

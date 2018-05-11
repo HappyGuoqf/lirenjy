@@ -236,7 +236,6 @@ class Users extends Common{
         $Users = db('users')
                 ->alias('u')
                 ->join('users_formal f','u.id=f.user_id')
-                ->field('u.id,u.mobile,u.level,f.user_id,f.name,f.sex,f.nation,f.idcard,f.education,f.p_origin,f.tel,f.em_name,f.em_tel,f.email,f.qq,f.wechat,f.company,f.old_school,f.address,f.university_type,f.university,f.university_apply,f.university_course,f.tuition,f.understand_way,f.study_md,f.f_date,f.f_date_num,f.f_money,f.s_date,f.s_date_num,f.s_money,f.t_date,f.t_date_num,f.t_money,f.study_yeah,f.teacher,f.f_pingjia,f.f_teacher,f.f_teacher_date,f.f_soure,f.other_remarks,f.addtime,f.state,f.enrol_date,f.graduation_date,f.grant_date,f.school_status')
                 ->where(array('u.id'=>$map['id'],'u.level'=>$map['level']))
                 ->select();
 
@@ -270,23 +269,29 @@ class Users extends Common{
             ->setCellValue('K1', '紧急联系电话')
             ->setCellValue('L1', 'Emeil')
             ->setCellValue('M1', 'QQ')
-            ->setCellValue('N1', '微信')
-            ->setCellValue('O1', '公司及职位')
-            ->setCellValue('P1', '原毕业院校及专业')
-            ->setCellValue('Q1', '现住地址')
-            ->setCellValue('R1', '报考院校')
-            ->setCellValue('S1', '报考专业')
-            ->setCellValue('T1', '报读层次')
-            ->setCellValue('U1', '学习类型')
-            ->setCellValue('V1', '学籍状态')
-            ->setCellValue('W1', '学费')
-            ->setCellValue('X1', '日期')
-            ->setCellValue('Y1', '票据号码')
-            ->setCellValue('Z1', '金额')
-            ->setCellValue('AA1', '日期')
-            ->setCellValue('AB1', '票据号码')
-            ->setCellValue('AC1', '金额')
-            ->setCellValue('AD1', '备注');
+            ->setCellValue('N1', '职位')
+            ->setCellValue('O1', '原毕业院校及专业')
+            ->setCellValue('P1', '现住地址')
+            ->setCellValue('Q1', '报考院校')
+            ->setCellValue('R1', '报考专业')
+            ->setCellValue('S1', '报读层次')
+            ->setCellValue('T1', '学习类型')
+            ->setCellValue('U1', '学籍状态')
+            ->setCellValue('V1', '学习目的')
+            ->setCellValue('W1', '了解途径')
+            ->setCellValue('X1', '入学时间')
+            ->setCellValue('Y1', '预计毕业时间')
+            ->setCellValue('Z1', '毕业证发放时间')
+            ->setCellValue('AA1', '毕业状态(0.未填，1.已毕业，2.未毕业，3.在读中)')
+            ->setCellValue('AB1', '学制(年)')
+            ->setCellValue('AC1', '学费')
+            ->setCellValue('AD1', '日期')
+            ->setCellValue('AE1', '票据号码')
+            ->setCellValue('AF1', '金额')
+            ->setCellValue('AG1', '日期')
+            ->setCellValue('AH1', '票据号码')
+            ->setCellValue('AI1', '金额')
+            ->setCellValue('AJ1', '备注');
 
         /*--------------开始从数据库提取信息插入Excel表中------------------*/
 
@@ -309,23 +314,29 @@ class Users extends Common{
             $objPHPExcel->getActiveSheet()->setCellValue('K' . $i, $Users[$i-2][em_tel]);
             $objPHPExcel->getActiveSheet()->setCellValue('L' . $i, $Users[$i-2][email]);
             $objPHPExcel->getActiveSheet()->setCellValue('M' . $i, $Users[$i-2][qq]);
-            $objPHPExcel->getActiveSheet()->setCellValue('N' . $i, $Users[$i-2][wechat]);
-            $objPHPExcel->getActiveSheet()->setCellValue('O' . $i, $Users[$i-2][company]);
-            $objPHPExcel->getActiveSheet()->setCellValue('P' . $i, $Users[$i-2][old_school]);
-            $objPHPExcel->getActiveSheet()->setCellValue('Q' . $i, $Users[$i-2][address]);
-            $objPHPExcel->getActiveSheet()->setCellValue('R' . $i, $Users[$i-2][university_type]);
-            $objPHPExcel->getActiveSheet()->setCellValue('S' . $i, $Users[$i-2][university_apply]);
-            $objPHPExcel->getActiveSheet()->setCellValue('T' . $i, $Users[$i-2][university_course]);
-            $objPHPExcel->getActiveSheet()->setCellValue('U' . $i, $Users[$i-2][university_type]);
-            $objPHPExcel->getActiveSheet()->setCellValue('V' . $i, $Users[$i-2][school_staute]);
-            $objPHPExcel->getActiveSheet()->setCellValue('W' . $i, $Users[$i-2][tuition]);
-            $objPHPExcel->getActiveSheet()->setCellValue('X' . $i, $Users[$i-2][f_date]);
-            $objPHPExcel->getActiveSheet()->setCellValue('Y' . $i, $Users[$i-2][f_date_num]);
-            $objPHPExcel->getActiveSheet()->setCellValue('Z' . $i, $Users[$i-2][f_money]);
-            $objPHPExcel->getActiveSheet()->setCellValue('AA' . $i, $Users[$i-2][s_date]);
-            $objPHPExcel->getActiveSheet()->setCellValue('AB' . $i, $Users[$i-2][s_date_num]);
-            $objPHPExcel->getActiveSheet()->setCellValue('AC' . $i, $Users[$i-2][s_money]);
-            $objPHPExcel->getActiveSheet()->setCellValue('AD' . $i, $Users[$i-2][other_remarks]);
+            $objPHPExcel->getActiveSheet()->setCellValue('N' . $i, $Users[$i-2][company]);
+            $objPHPExcel->getActiveSheet()->setCellValue('O' . $i, $Users[$i-2][old_school]);
+            $objPHPExcel->getActiveSheet()->setCellValue('P' . $i, $Users[$i-2][address]);
+            $objPHPExcel->getActiveSheet()->setCellValue('Q' . $i, $Users[$i-2][university]);
+            $objPHPExcel->getActiveSheet()->setCellValue('R' . $i, $Users[$i-2][university_apply]);
+            $objPHPExcel->getActiveSheet()->setCellValue('S' . $i, $Users[$i-2][university_course]);
+            $objPHPExcel->getActiveSheet()->setCellValue('T' . $i, $Users[$i-2][university_type]);
+            $objPHPExcel->getActiveSheet()->setCellValue('U' . $i, $Users[$i-2][school_status]);
+            $objPHPExcel->getActiveSheet()->setCellValue('V' . $i, $Users[$i-2][study_md]);
+            $objPHPExcel->getActiveSheet()->setCellValue('W' . $i, $Users[$i-2][understand_way]);
+            $objPHPExcel->getActiveSheet()->setCellValue('X' . $i, $Users[$i-2][enrol_date]);
+            $objPHPExcel->getActiveSheet()->setCellValue('Y' . $i, $Users[$i-2][graduation_date]);
+            $objPHPExcel->getActiveSheet()->setCellValue('Z' . $i, $Users[$i-2][grant_date]);
+            $objPHPExcel->getActiveSheet()->setCellValue('AA' . $i, $Users[$i-2][state]);
+            $objPHPExcel->getActiveSheet()->setCellValue('AB' . $i, $Users[$i-2][study_yeah]);
+            $objPHPExcel->getActiveSheet()->setCellValue('AC' . $i, $Users[$i-2][tuition]);
+            $objPHPExcel->getActiveSheet()->setCellValue('AD' . $i, $Users[$i-2][f_date]);
+            $objPHPExcel->getActiveSheet()->setCellValue('AE' . $i, $Users[$i-2][f_date_num]);
+            $objPHPExcel->getActiveSheet()->setCellValue('AF' . $i, $Users[$i-2][f_money]);
+            $objPHPExcel->getActiveSheet()->setCellValue('AG' . $i, $Users[$i-2][s_date]);
+            $objPHPExcel->getActiveSheet()->setCellValue('AH' . $i, $Users[$i-2][s_date_num]);
+            $objPHPExcel->getActiveSheet()->setCellValue('AI' . $i, $Users[$i-2][s_money]);
+            $objPHPExcel->getActiveSheet()->setCellValue('AJ' . $i, $Users[$i-2][other_remarks]);
 
         }
 

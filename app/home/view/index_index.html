@@ -55,12 +55,15 @@
                     <!--学历查询登录框-->
                     <div class="login-index">
                         <h3>———<span>学历查询</span>———</h3>
-                        <form>
-                            <div class="card-num"><input class="card-num-input" type="text" placeholder="输入身份证号" /></div>
-                            <div class="telphone"><input class="telphone-input" type="text" placeholder="输入手机号" /></div>
-                            <div class="yanzhengma"><input class="yanzhengma-input" type="text" placeholder="输入验证码" /></div>
-                            <button class="button-index">查询</button>
-                            <a href="" class="help-index">请求帮助>></a>
+                        <form action="/home-contact-record" method="post">
+                            <div class="card-num"><input id="card-num-input" name="idcard" class="card-num-input" type="text" placeholder="输入身份证号" /></div>
+                            <div class="telphone"><input id="telphone-input" name="tel" class="telphone-input" type="text" placeholder="输入手机号" /></div>
+                            <div class="yanzhengma"><input class="yanzhengma-input" name="verify" type="text" placeholder="输入验证码" /></div>
+                            <div>
+                            <img id="verify_img" src="{:captcha_src()}" alt="验证码" onclick="refreshVerify()" style="width: 100px;">
+                            <a href="javascript:refreshVerify()" style="margin-bottom: 10px;display: inline-block;">点击刷新</a></div>
+                            <button class="button-index" id="button-index">查询</button>
+                            <a href="https://lzt.zoosnet.net/lr/chatpre.aspx?id=lzt28299655&cid=1524215053134506242337&lng=cn&sid=1524215053134506242337&p=http%3a//www.lirenjy.com/&r=http%3a//www.lirenjy.com/&msg=&d=1524215561397" class="help-index">请求帮助>></a>
                         </form>
                     </div>
                     <!--学历查询登录框-->
@@ -104,6 +107,11 @@ function play() {
     }
     $(".nav").find("span").addClass("item-"+(index+1));
 };
+    function refreshVerify() {
+        var ts = Date.parse(new Date())/1000;
+        var img = document.getElementById('verify_img');
+        img.src = "/captcha?id="+ts;
+    }
 </script>
 
 

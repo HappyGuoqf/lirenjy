@@ -46,7 +46,7 @@
 </script>
                 <div id="print_content">
                 <div style="width: 842px; margin:0 auto">
-                <div style="    font-size: 8px; border-bottom: 1px solid #6d6d6d;color: #6d6d6d;">合同编号：{$list.signature_num}</div><br />
+                <div style="    font-size: 16px; border-bottom: 1px solid #6d6d6d;color: #6d6d6d;">合同编号：{$list.signature_num}</div><br />
                       <div style="font-size: 24px; font-weight:bold;font-family: '华文中宋';text-align: center;">{$list.contract_title}</div>
                       <br /><br /><br />
                       <div style="font-size: 16px;font-family: '华文中宋';">
@@ -65,9 +65,9 @@
                       {$list.company_content}
                       <div style="font-size: 16px;font-family: '华文中宋';">
                         <div style="height: 130px;">
-                          <div style="width: 45%; float: left;">
+                          <div style="width: 45%; float: left; position:relative;">
                             <span style="display: block; line-height: 38px;">甲方</span>
-                            <span style="display: block; line-height: 38px;;">盖章：<img src="{$list.pic}" style="position:absolute; width:80px;" /></span>
+                            <span style="display: block; line-height: 38px;;">盖章：<img src="{$list.pic}" style="position:absolute; width:160px;top:0;opacity: 0.8;" /></span>
                             <span style="display: block; line-height: 38px;;">联系方式：{$list.company_phone}</span>
                             <span style="display: block; line-height: 38px;;">签字时间：{:toDate($list.addtime,'Y年m月d日')}</span>
                           </div>
